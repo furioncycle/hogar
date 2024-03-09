@@ -79,8 +79,7 @@
           inputs.nix-vscode-extensions.overlays.default
           inputs.nixpkgs-wayland.overlay
           inputs.zig-overlay.overlays.default
-        ];
-        systemSpecificOverlays = [
+        ] ++ [
           (final: prev: {
             zls = inputs.zls-master.packages.${system}.default;
             helix = inputs.helix-master.packages.${system}.default;
