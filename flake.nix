@@ -20,6 +20,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     comma.url = "github:nix-community/comma";
     flake-utils.url = "github:numtide/flake-utils";
+    zig-overlay.url = "github:mitchellh/zig-overlay";
+    helix-master = {
+      url = "github:SoraTenshi/helix/new-daily-driver";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -55,13 +60,17 @@
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zls-master = {
+      url = "github:zigtools/zls/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, flake-utils, home-manager, ... }@inputs:
     let
       inherit (self) outputs;
-      gn = "dave";
-      gnsn = "daveconroy";
+      gn = "ttecho";
+      gnsn = "ttecho";
 
       pkgsForSystem = system: import nixpkgs {
         overlays = [
@@ -69,6 +78,13 @@
           inputs.nur.overlay
           inputs.nix-vscode-extensions.overlays.default
           inputs.nixpkgs-wayland.overlay
+          inputs.zig-overlay.overlays.default
+        ];
+        systemSpecificOverlays = [
+          (final: prev: {
+            zls = inputs.zls-master.packages.${system}.default;
+            helix = inputs.helix-master.packages.${system}.default;
+          })
         ];
         inherit system;
       };
@@ -290,6 +306,15 @@
               org = "sd";
               role = "server";
               hostname = "tesla";
+              username = gnsn;
+              inherit inputs outputs;
+            };
+          };
+          "slowmo.${gnsn}" = HomeConfiguration {
+            extraSpecialArgs = {
+              org = "toi";
+              role = "workstation";
+              hostname = "slowmo";
               username = gnsn;
               inherit inputs outputs;
             };

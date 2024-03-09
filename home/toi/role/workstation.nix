@@ -7,23 +7,23 @@ with lib;
   host = {
     home = {
       applications = {
-        act.enable = mkDefault true;
-        android-tools.enable = mkDefault true;
+        act.enable = mkDefault false;
+        android-tools.enable = mkDefault false;
         calibre = {
-          enable = mkDefault true;
+          enable = mkDefault false;
           defaultApplication.enable = mkDefault true;
         };
-        docker-compose.enable = mkDefault true;
+        docker-compose.enable = mkDefault false;
         git.enable = mkDefault true;
         encfs.enable = mkDefault false;
-        neovim.enable = mkDefault true;
-        nextcloud-client.enable = mkDefault true;
-        tea.enable = mkDefault true;
+        neovim.enable = mkDefault false;
+        nextcloud-client.enable = mkDefault false;
+        tea.enable = mkDefault false;
       };
       feature = {
       };
       service = {
-        decrypt_encfs_workspace.enable = mkDefault true;
+        decrypt_encfs_workspace.enable = mkDefault false;
         vscode-server.enable = mkDefault true;
       };
     };
@@ -31,7 +31,7 @@ with lib;
 
   xdg = {
     mimeApps = {
-      enable = mkDefault true;
+      enable = mkDefault false;
     };
   };
 }

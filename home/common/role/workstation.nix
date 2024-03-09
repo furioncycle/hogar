@@ -7,26 +7,27 @@ with lib;
   host = {
     home = {
       applications = {
-        android-tools.enable = mkDefault true;
+        android-tools.enable = mkDefault false;
         ark = {
-          enable = mkDefault true;
-          defaultApplication.enable = mkDefault true;
+          enable = mkDefault false;
+          defaultApplication.enable = mkDefault false;
         };
-        bleachbit.enable = mkDefault true;
+        bleachbit.enable = mkDefault false;
         blueman.enable = mkDefault true;
+        calibre.enable = mkDefault true;
         chromium.enable = mkDefault true;
         comma.enable = mkDefault true;
-        czkawka.enable = mkDefault true;
+        czkawka.enable = mkDefault false;
         diffuse = {
-          enable = mkDefault true;
+          enable = mkDefault false;
           defaultApplication.enable = mkDefault true;
         };
         drawio = {
-          enable = mkDefault true;
+          enable = mkDefault false;
           defaultApplication.enable = mkDefault true;
         };
         eog = {
-          enable = mkDefault true;
+          enable = mkDefault false;
           defaultApplication.enable = mkDefault true;
         };
         ferdium.enable = mkDefault true;
@@ -35,37 +36,37 @@ with lib;
           defaultApplication.enable = mkDefault true;
         };
         flameshot.enable = mkDefault true;
-        geeqie.enable = mkDefault true;
-        gnome-encfs-manager.enable = mkDefault true;
+        geeqie.enable = mkDefault false;
+        gnome-encfs-manager.enable = mkDefault false;
         gnome-system-monitor.enable = mkDefault true;
         gparted.enable = mkDefault true;
-        greenclip.enable = mkDefault true;
-        hadolint.enable = mkDefault true ;
+        greenclip.enable = mkDefault false;
+        hadolint.enable = mkDefault false ;
         kitty.enable = mkDefault true;
-        libreoffice.enable = mkDefault true;
+        libreoffice.enable = mkDefault false;
         mp3gain.enable = mkDefault true;
         master-pdf-editor.enable = mkDefault true;
         mate-calc.enable = mkDefault true;
-        nextcloud-client.enable = mkDefault true;
+        nextcloud-client.enable = mkDefault false;
         nix-development_tools.enable = mkDefault true;
         nmap.enable = mkDefault true;
-        opensnitch-ui.enable = mkDefault true;
-        pinta.enable = mkDefault true;
+        opensnitch-ui.enable = mkDefault false;
+        pinta.enable = mkDefault false;
         pulsemixer.enable = mkDefault true;
         remmina = {
-          enable = mkDefault true;
+          enable = mkDefault false;
           defaultApplication.enable = mkDefault true;
         };
-        seahorse.enable = mkDefault true;
+        seahorse.enable = mkDefault false;
         shellcheck.enable = mkDefault true;
         shfmt.enable = mkDefault true;
-        smartgit.enable = mkDefault true;
+        smartgit.enable = mkDefault false;
         smplayer = {
           enable = mkDefault true;
           defaultApplication.enable = mkDefault true;
         };
-        thunar.enable = mkDefault true;
-        thunderbird.enable = mkDefault true;
+        thunar.enable = mkDefault false;
+        thunderbird.enable = mkDefault false;
         virt-manager.enable = mkDefault true;
         visual-studio-code = {
           enable = mkDefault true;
@@ -74,14 +75,14 @@ with lib;
         wps-office.enable = mkDefault true;
         xdg-ninja.enable = mkDefault true;
         xmlstarlet.enable = mkDefault true;
-        yq.enable = mkDefault true;
-        yt-dlp.enable = mkDefault true;
+        yq.enable = mkDefault false;
+        yt-dlp.enable = mkDefault false;
         zathura = {
           enable = mkDefault true;
           defaultApplication.enable = mkDefault true;
         };
         zenity.enable = mkDefault true;
-        zoom.enable = mkDefault true;
+        zoom.enable = mkDefault false;
       };
       feature = {
         fonts.enable = mkDefault true;

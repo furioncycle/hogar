@@ -1,4 +1,4 @@
-{ config, inputs, lib, nix-vscode-extensions, ... }:
+{ config, inputs, lib, nix-vscode-extensions, pkgs,... }:
 let
   cfg = config.host.home.applications.visual-studio-code;
 in
@@ -52,7 +52,7 @@ in
           lizebang.bash-extension-pack              # Bash shell
 
         ## Docker
-          ms-azuretools.vscode-docker               # Docker containers, images, and volumes
+          # ms-azuretools.vscode-docker               # Docker containers, images, and volumes
 
         ## Editor Helpers
           tyriar.sort-lines                         # Sort Lines
@@ -65,7 +65,8 @@ in
           tombonnike.vscode-status-bar-format-toggle # Toggle formatting with a single click
           uyiosa-enabulele.reopenclosedtab          # Reopen last tab
           ziyasal.vscode-open-in-github             # Jump to a source code line in Github, Bitbucket, Gitlab, VisualStudio.com
-
+          emeraldwalk.runonsave
+          vscodevim.vim
         ## CI
           github.vscode-github-actions              # Github actions helper
 
@@ -91,6 +92,16 @@ in
           foxundermoon.shell-format                 # Bash
           redhat.vscode-yaml                        # YAML
           timonwong.shellcheck                      # Bash TODO: Split and force shellcheck binary to be installed
+          oderwat.indent-rainbow                    # Visual indenting
+
+          rust-lang.rust-analyzer                   # Rust tooling
+          ms-python.python                          # Pyton tooling
+
+        ## Themes
+          catppuccin.catppuccin-vsc
+
+        ## Random
+          gruntfuggly.todo-tree 
       ];
       keybindings = [
         ## Favorites
@@ -190,13 +201,21 @@ in
         "window.menuBarVisibility" = "compact";
         "window.titleBarStyle" = "native";
         "window.zoomLevel" = 1;
+        "emeraldwalk.runonsave" = { 
+          commands = [
+            { 
+              match = "\\.py$"; 
+              cmd = "${pkgs.curl}/bin/curl 'http://localhost:8080/reload_mode' --date-raw 'name=\${file}'";
+            }
+          ];
+        };
 
         ## Docker
-        "docker.commands.attach" = "$${containerCommand} exec -it $${containerId} $${shellCommand}" ;
-        "docker.containers.description" = ["ContainerName" "Status" ] ;
-        "docker.containers.label" = "ContainerName" ;
-        "docker.containers.sortBy" = "Label" ;
-        "docker.volumes.label" = "VolumeName" ;
+        # "docker.commands.attach" = "$${containerCommand} exec -it $${containerId} $${shellCommand}" ;
+        # "docker.containers.description" = ["ContainerName" "Status" ] ;
+        # "docker.containers.label" = "ContainerName" ;
+        # "docker.containers.sortBy" = "Label" ;
+        # "docker.volumes.label" = "VolumeName" ;
 
         ## Editor
         "editor.bracketPairColorization.enabled" = true;
@@ -220,7 +239,7 @@ in
         "workbench.editor.highlightModifiedTabs" = true;
         "workbench.editor.showTabs" = "multiple";
         "workbench.startupEditor" = "none" ;
-
+        "workbench.colorTheme" =  "Catppuccin Mocha";
 
         ## Formatting
         "[dockerfile]" = { "editor.defaultFormatter" = "foxundermoon.shell-format" ;};
@@ -282,6 +301,8 @@ in
         "terminal.integrated.fontFamily" = "Hack Nerd Font";
 
         mutableExtensionsDir = false;
+
+        "remote.SSH.serverInstallPath" = { "eyesy.local" = "/sdcard/"; };
       };
     };
     xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication.enable (
