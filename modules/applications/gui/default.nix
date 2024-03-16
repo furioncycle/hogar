@@ -31,6 +31,7 @@ with lib;
     ./nextcloudclient.nix
     ./obsidian.nix
     ./opensnitch-ui.nix
+    ./openshot.nix
     ./pinta.nix
     ./pulsemixer.nix
     ./remmina.nix

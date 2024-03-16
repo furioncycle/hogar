@@ -1,4 +1,4 @@
-{ config, inputs, lib, nix-vscode-extensions, pkgs,... }:
+{ config, inputs, lib, pkgs,... }:
 let
   cfg = config.host.home.applications.visual-studio-code;
 in
@@ -85,6 +85,7 @@ in
           ms-vscode.remote-explorer                 # View remote machines for SSH and Tunnels
 
         ## Syntax Highlighting | File Support | Linting
+          # adacore.ada-language-server
           bbenoist.nix                              # Nix
           bierner.markdown-mermaid                  # MermaidJS in MarkDown
           dunstontc.vscode-docker-syntax            # DockerFile
@@ -102,7 +103,17 @@ in
 
         ## Random
           gruntfuggly.todo-tree 
-      ];
+       ] ++  pkgs.vscode-extensions [
+          dafny-lang.ide-vscode
+       ];
+
+         
+# {
+#             name=  "ide-vscode";
+#             publisher = "dafny-lang";
+#             version = "3.2.2";
+#             sha256 = "sha256-aYMm+ebJJ5BW63iQobpXut6XCgbmzDxA+8VS403ZvRY=";
+#           }      ];
       keybindings = [
         ## Favorites
         {
@@ -305,6 +316,7 @@ in
         "remote.SSH.serverInstallPath" = { "eyesy.local" = "/sdcard/"; };
       };
     };
+    # programs.dafny.enable = true;
     xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication.enable (
       lib.genAttrs cfg.defaultApplication.mimeTypes (_: "code.desktop")
     );

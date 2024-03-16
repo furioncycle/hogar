@@ -51,6 +51,10 @@ with lib;
         nix-development_tools.enable = mkDefault true;
         nmap.enable = mkDefault true;
         opensnitch-ui.enable = mkDefault false;
+        openshot = {
+          enable = mkDefault true;
+          defaultApplication.enable = mkDefault true;
+        };
         pinta.enable = mkDefault false;
         pulsemixer.enable = mkDefault true;
         remmina = {
