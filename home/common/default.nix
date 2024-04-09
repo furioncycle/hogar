@@ -26,6 +26,7 @@ with lib;
           diceware.enable = mkDefault true;
           duf.enable = mkDefault true;
           dust.enable = mkDefault true;
+          # fish.enable = mkDefault true;
           file-compression.enable = mkDefault true;
           fzf.enable = mkDefault true;
           git.enable = mkDefault true;

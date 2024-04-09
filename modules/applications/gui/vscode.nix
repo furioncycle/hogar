@@ -1,4 +1,4 @@
-{ config, inputs, lib, pkgs,... }:
+{config, inputs, lib, pkgs,... }:
 let
   cfg = config.host.home.applications.visual-studio-code;
 in
@@ -47,6 +47,8 @@ in
   config = mkIf cfg.enable {
     programs.vscode =  {
       enable = true;
+      enableUpdateCheck = false;
+      enableExtensionUpdateCheck = true;
       extensions = with inputs.nix-vscode-extensions.extensions.x86_64-linux.vscode-marketplace; [
         ## Bundles
           lizebang.bash-extension-pack              # Bash shell
@@ -103,17 +105,17 @@ in
 
         ## Random
           gruntfuggly.todo-tree 
-       ] ++  pkgs.vscode-extensions [
-          dafny-lang.ide-vscode
-       ];
-
-         
-# {
-#             name=  "ide-vscode";
-#             publisher = "dafny-lang";
-#             version = "3.2.2";
-#             sha256 = "sha256-aYMm+ebJJ5BW63iQobpXut6XCgbmzDxA+8VS403ZvRY=";
-#           }      ];
+          # uiua-lang.uiua-vscode
+          
+       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "ide-vscode";
+          publisher = "dafny-lang";
+          version = "3.3.0";
+          sha256 = "sha256-YVmwFE4GiAgEOGhg9YmRa4DkWtdjk7hO5p++suj4Pn4=";
+        }
+      ];
+      
       keybindings = [
         ## Favorites
         {
@@ -308,12 +310,18 @@ in
         "update.mode" = "none";
 
         ## Terminal
-        "terminal.integrated.enableMultiLinePasteWarning" = false;
+        "terminal.integrated.enableMultiLinePasteWarning" = "never";
         "terminal.integrated.fontFamily" = "Hack Nerd Font";
 
         mutableExtensionsDir = false;
 
         "remote.SSH.serverInstallPath" = { "eyesy.local" = "/sdcard/"; };
+
+        ## Dafny
+        "dafny.automaticVerification" = "onchange";
+        "dafny.dotnetExecutablePath" = "${pkgs.dotnet-sdk}/bin/dotnet";
+        "dafny.cliPath" = "${pkgs.dafny}/bin/dafny";
+        "dafny.version" = "4.6.0";
       };
     };
     # programs.dafny.enable = true;

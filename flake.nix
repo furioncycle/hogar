@@ -17,8 +17,8 @@
   };
 
   inputs = {
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "/home/ttecho/dev/nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "/home/ttecho/dev/nixpkgs";
     comma.url = "github:nix-community/comma";
     flake-utils.url = "github:numtide/flake-utils";
     zig-overlay.url = "github:mitchellh/zig-overlay";
@@ -103,213 +103,213 @@
       }) //
       {
         homeConfigurations = {
-          "beef.${gn}" = HomeConfiguration {
-            extraSpecialArgs = {
-              org = "toi";
-              role = "workstation";
-              hostname = "beef";
-              username = gn;
-              displays = 3;
-              display_center = "DisplayPort-1";
-              display_left = "DisplayPort-2";
-              display_right = "HDMI-A-0";
-              networkInterface = "wlp10s0";
-              inherit inputs outputs;
-            };
-          };
+    #       "beef.${gn}" = HomeConfiguration {
+    #         extraSpecialArgs = {
+    #           org = "toi";
+    #           role = "workstation";
+    #           hostname = "beef";
+    #           username = gn;
+    #           displays = 3;
+    #           display_center = "DisplayPort-1";
+    #           display_left = "DisplayPort-2";
+    #           display_right = "HDMI-A-0";
+    #           networkInterface = "wlp10s0";
+    #           inherit inputs outputs;
+    #         };
+    #       };
 
-          "butcher.${gn}" = HomeConfiguration {
-            extraSpecialArgs = {
-              org = "toi";
-              role = "server";
-              hostname = "butcher";
-              username = gn;
-              networkInterface = "enp6s18";
-              inherit inputs outputs;
-            };
-          };
+    #       "butcher.${gn}" = HomeConfiguration {
+    #         extraSpecialArgs = {
+    #           org = "toi";
+    #           role = "server";
+    #           hostname = "butcher";
+    #           username = gn;
+    #           networkInterface = "enp6s18";
+    #           inherit inputs outputs;
+    #         };
+    #       };
 
-          "cog.${gn}" = HomeConfiguration {
-            extraSpecialArgs = {
-              org = "toi";
-              role = "server";
-              hostname = "cog" ;
-              username = gn;
-              networkInterface = "br0";
-              inherit inputs outputs;
-            };
-          };
+    #       "cog.${gn}" = HomeConfiguration {
+    #         extraSpecialArgs = {
+    #           org = "toi";
+    #           role = "server";
+    #           hostname = "cog" ;
+    #           username = gn;
+    #           networkInterface = "br0";
+    #           inherit inputs outputs;
+    #         };
+    #       };
 
-          "nakulaptop.${gn}" = HomeConfiguration {
-            extraSpecialArgs = {
-              org = "toi";
-              role = "workstation";
-              hostname = "nakulaptop";
-              username = gn;
-              displays = 2;
-              display_center = "HDMI-A-0";
-              display_right = "eDP";
-              networkInterface = "wlo1";
-              inherit inputs outputs;
-            };
-          };
+    #       "nakulaptop.${gn}" = HomeConfiguration {
+    #         extraSpecialArgs = {
+    #           org = "toi";
+    #           role = "workstation";
+    #           hostname = "nakulaptop";
+    #           username = gn;
+    #           displays = 2;
+    #           display_center = "HDMI-A-0";
+    #           display_right = "eDP";
+    #           networkInterface = "wlo1";
+    #           inherit inputs outputs;
+    #         };
+    #       };
 
-          "nakulaptop.ireen" = HomeConfiguration {
-            extraSpecialArgs = {
-              org = "toi";
-              role = "workstation";
-              hostname = "nakulaptop";
-              username = "ireen";
-              displays = 1;
-              display_center = "eDP";
-              display_right = "HDMI-A-0";
-              networkInterface = "wlo1";
-              inherit inputs outputs;
-            };
-          };
+    #       "nakulaptop.ireen" = HomeConfiguration {
+    #         extraSpecialArgs = {
+    #           org = "toi";
+    #           role = "workstation";
+    #           hostname = "nakulaptop";
+    #           username = "ireen";
+    #           displays = 1;
+    #           display_center = "eDP";
+    #           display_right = "HDMI-A-0";
+    #           networkInterface = "wlo1";
+    #           inherit inputs outputs;
+    #         };
+    #       };
 
-          "selecta.${gn}" = HomeConfiguration {
-            extraSpecialArgs = {
-              org = "toi";
-              role = "workstation";
-              hostname = "selecta";
-              username = gn;
-              displays = 1;
-              display_center = "HDMI-1";
-              networkInterface = "wlo1";
-              inherit inputs outputs;
-            };
-          };
+    #       "selecta.${gn}" = HomeConfiguration {
+    #         extraSpecialArgs = {
+    #           org = "toi";
+    #           role = "workstation";
+    #           hostname = "selecta";
+    #           username = gn;
+    #           displays = 1;
+    #           display_center = "HDMI-1";
+    #           networkInterface = "wlo1";
+    #           inherit inputs outputs;
+    #         };
+    #       };
 
-          "selecta.media" = HomeConfiguration {
-            extraSpecialArgs = {
-              org = "toi";
-              role = "workstation";
-              hostname = "selecta";
-              username = "media";
-              displays = 1;
-              display_center = "HDMI-1";
-              networkInterface = "wlo1";
-              inherit inputs outputs;
-            };
-          };
+    #       "selecta.media" = HomeConfiguration {
+    #         extraSpecialArgs = {
+    #           org = "toi";
+    #           role = "workstation";
+    #           hostname = "selecta";
+    #           username = "media";
+    #           displays = 1;
+    #           display_center = "HDMI-1";
+    #           networkInterface = "wlo1";
+    #           inherit inputs outputs;
+    #         };
+    #       };
 
-          "soy.${gn}" = HomeConfiguration {
-            extraSpecialArgs = {
-              org = "toi";
-              role = "workstation";
-              hostname = "soy";
-              username = gn;
-              displays = 1;
-              networkInterface = "wlo1";
-              inherit inputs outputs;
-            };
-          };
+    #       "soy.${gn}" = HomeConfiguration {
+    #         extraSpecialArgs = {
+    #           org = "toi";
+    #           role = "workstation";
+    #           hostname = "soy";
+    #           username = gn;
+    #           displays = 1;
+    #           networkInterface = "wlo1";
+    #           inherit inputs outputs;
+    #         };
+    #       };
 
-          "tentacle.${gn}" = HomeConfiguration {
-            system = "aarch64-linux";
-            extraSpecialArgs = {
-              org = "toi";
-              role = "server";
-              hostname = "tentacle" ;
-              username = gn;
-              networkInterface = "enp6s18";
-              inherit inputs outputs;
-            };
-          };
+    #       "tentacle.${gn}" = HomeConfiguration {
+    #         system = "aarch64-linux";
+    #         extraSpecialArgs = {
+    #           org = "toi";
+    #           role = "server";
+    #           hostname = "tentacle" ;
+    #           username = gn;
+    #           networkInterface = "enp6s18";
+    #           inherit inputs outputs;
+    #         };
+    #       };
 
-          "workspace.${gn}" = HomeConfiguration {
-            extraSpecialArgs = {
-              org = "toi";
-              role = "server";
-              hostname = "workspace" ;
-              username = gn;
-              networkInterface = "br0";
-              inherit inputs outputs;
-            };
-          };
+    #       "workspace.${gn}" = HomeConfiguration {
+    #         extraSpecialArgs = {
+    #           org = "toi";
+    #           role = "server";
+    #           hostname = "workspace" ;
+    #           username = gn;
+    #           networkInterface = "br0";
+    #           inherit inputs outputs;
+    #         };
+    #       };
 
-      ##
-          "bell.${gnsn}" = HomeConfiguration {
-            extraSpecialArgs = {
-              org = "sd";
-              role = "server";
-              hostname = "bell";
-              username = gnsn;
-              inherit inputs outputs;
-            };
-          };
+    #   ##
+    #       "bell.${gnsn}" = HomeConfiguration {
+    #         extraSpecialArgs = {
+    #           org = "sd";
+    #           role = "server";
+    #           hostname = "bell";
+    #           username = gnsn;
+    #           inherit inputs outputs;
+    #         };
+    #       };
 
-          "edge.${gnsn}" = HomeConfiguration {
-            extraSpecialArgs = {
-              org = "sd";
-              role = "server";
-              hostname = "edge";
-              username = gnsn;
-              inherit inputs outputs;
-            };
-          };
+    #       "edge.${gnsn}" = HomeConfiguration {
+    #         extraSpecialArgs = {
+    #           org = "sd";
+    #           role = "server";
+    #           hostname = "edge";
+    #           username = gnsn;
+    #           inherit inputs outputs;
+    #         };
+    #       };
 
-          "einstein.${gnsn}" = HomeConfiguration {
-            system = "aarch64-linux";
-            extraSpecialArgs = {
-              org = "sd";
-              role = "server";
-              hostname = "einstein";
-              username = gnsn;
-              inherit inputs outputs;
-            };
-          };
+    #       "einstein.${gnsn}" = HomeConfiguration {
+    #         system = "aarch64-linux";
+    #         extraSpecialArgs = {
+    #           org = "sd";
+    #           role = "server";
+    #           hostname = "einstein";
+    #           username = gnsn;
+    #           inherit inputs outputs;
+    #         };
+    #       };
 
-          "sd20.${gnsn}" = HomeConfiguration {
-            extraSpecialArgs = {
-              org = "sd";
-              role = "server";
-              hostname = "sd20";
-              username = gnsn;
-              inherit inputs outputs;
-            };
-          };
+    #       "sd20.${gnsn}" = HomeConfiguration {
+    #         extraSpecialArgs = {
+    #           org = "sd";
+    #           role = "server";
+    #           hostname = "sd20";
+    #           username = gnsn;
+    #           inherit inputs outputs;
+    #         };
+    #       };
 
-          "sd91.${gnsn}" = HomeConfiguration {
-            extraSpecialArgs = {
-              org = "sd";
-              role = "server";
-              hostname = "sd91";
-              username = gnsn;
-              inherit inputs outputs;
-            };
-          };
+    #       "sd91.${gnsn}" = HomeConfiguration {
+    #         extraSpecialArgs = {
+    #           org = "sd";
+    #           role = "server";
+    #           hostname = "sd91";
+    #           username = gnsn;
+    #           inherit inputs outputs;
+    #         };
+    #       };
 
-          "sd102.${gnsn}" = HomeConfiguration {
-            extraSpecialArgs = {
-              org = "sd";
-              role = "server";
-              hostname = "sd102";
-              username = gnsn;
-              inherit inputs outputs;
-            };
-          };
+    #       "sd102.${gnsn}" = HomeConfiguration {
+    #         extraSpecialArgs = {
+    #           org = "sd";
+    #           role = "server";
+    #           hostname = "sd102";
+    #           username = gnsn;
+    #           inherit inputs outputs;
+    #         };
+    #       };
 
-          "sd111.${gnsn}" = HomeConfiguration {
-            extraSpecialArgs = {
-              org = "sd";
-              role = "server";
-              hostname = "sd111";
-              username = gnsn;
-              inherit inputs outputs;
-            };
-          };
+    #       "sd111.${gnsn}" = HomeConfiguration {
+    #         extraSpecialArgs = {
+    #           org = "sd";
+    #           role = "server";
+    #           hostname = "sd111";
+    #           username = gnsn;
+    #           inherit inputs outputs;
+    #         };
+    #       };
 
-          "tesla.${gnsn}" = HomeConfiguration {
-            extraSpecialArgs = {
-              org = "sd";
-              role = "server";
-              hostname = "tesla";
-              username = gnsn;
-              inherit inputs outputs;
-            };
-          };
+    #       "tesla.${gnsn}" = HomeConfiguration {
+    #         extraSpecialArgs = {
+    #           org = "sd";
+    #           role = "server";
+    #           hostname = "tesla";
+    #           username = gnsn;
+    #           inherit inputs outputs;
+    #         };
+    #       };
           "slowmo.${gnsn}" = HomeConfiguration {
             extraSpecialArgs = {
               org = "toi";
@@ -319,7 +319,17 @@
               inherit inputs outputs;
             };
           };
-      };
+          
+          "slowmo.qiface" = HomeConfiguration {
+            extraSpecialArgs = {
+              org = "toi";
+              role = "workstation";
+              hostname = "slowmo";
+              username = "qiface";
+              inherit inputs outputs;
+            };
+          };      
+        };
 
       inherit home-manager;
       inherit (home-manager) packages;

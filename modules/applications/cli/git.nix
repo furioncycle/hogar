@@ -19,7 +19,9 @@ in
     programs = {
       git = {
         enable = true;
-        userName = "Dave Conroy";
+        lfs.enable = true;
+        delta.enable = true;
+        userName = "furioncycle";
         ignores = [ "*~" ".direnv" ".env" ".rgignore" ];
         extraConfig = {
           init = { defaultBranch = "main"; };
@@ -90,6 +92,10 @@ in
           gac = "git add . ; git commit -m \"$@\"" ;             # Git Add and Commit
           gacp = "git add . ; git commit -m \"$@\" ; git push" ;   # Git Add Commit and Push
         };
+      };
+      # Git compatible DVCS to try out jj with git
+      jujutsu = {
+        enable = true;
       };
     };
   };
