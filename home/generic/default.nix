@@ -1,15 +1,7 @@
 { config, lib, pkgs, specialArgs, ...}:
 let
-  s = "ti";
-  _p = "re";
-  _a = "do";
-  m = "f";
-  t = "i";
-  r = "t";
-  a_ = ".";
-  p_ = "ca";
-  username = "dave";
-  email = "${username}@${s}${_p}${_a}${m}${t}${r}${a_}${p_}";
+  username = "ttecho";
+  email = "email@lame.me";
 
   inherit (specialArgs) hostname role;
   inherit (pkgs.stdenv) isLinux isDarwin;

@@ -6,13 +6,10 @@ with lib;
     ./bleachbit.nix
     ./blueman.nix
     ./calibre.nix
-    ./chromium.nix
-    ./cura.nix
     ./czkawka.nix
     ./diffuse.nix
     ./drawio.nix
     ./dunst.nix
-    ./electrum.nix
     ./eog.nix
     ./ferdium.nix
     ./file-roller.nix
@@ -24,30 +21,24 @@ with lib;
     ./gparted.nix
     ./greenclip.nix
     ./hyprpicker.nix
+    ./iannix.nix
     ./kitty.nix
     ./libreoffice.nix
     ./masterpdfeditor.nix
     ./mate-calc.nix
-    ./nextcloudclient.nix
     ./obsidian.nix
     ./opensnitch-ui.nix
     ./openshot.nix
     ./pinta.nix
     ./pulsemixer.nix
-    ./remmina.nix
     ./rofi.nix
     ./seahorse.nix
-    ./smartgit.nix
     ./smplayer.nix
-    ./sqlitebrowser.nix
     ./szyszka.nix
     ./thunar.nix
-    ./thunderbird.nix
     ./veracrypt.nix
     ./virt-manager.nix
-    ./vivaldi.nix
     ./vscode.nix
-    ./wpsoffice.nix
     ./zoom.nix
   ];
 }

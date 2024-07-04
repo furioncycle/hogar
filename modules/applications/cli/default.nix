@@ -3,36 +3,30 @@
 with lib;
 {
   imports = [
-    ./act.nix
     ./android-tools.nix
     ./bat.nix
     ./bash.nix
     ./btop.nix
     ./comma.nix
-    ./diceware.nix
+    ./development.nix
     ./direnv.nix
-    ./docker-compose.nix
     ./duf.nix
     ./dust.nix
     ./encfs.nix
     ./file-compression.nix
-    # ./fish.nix
+    ./fish.nix
     ./fzf.nix
-    ./gh.nix
     ./git.nix
     ./gnupg.nix
-    ./hadolint.nix
     ./helix
     ./hugo.nix
     ./htop.nix
     ./jq.nix
-    ./lazygit.nix
     ./less.nix
     ./liquidprompt.nix
     ./lsd.nix
     ./mp3gain.nix
     ./mtr.nix
-    ./nano.nix
     ./ncdu.nix
     ./neofetch.nix
     ./neovim
@@ -40,15 +34,12 @@ with lib;
     ./nmap.nix
     ./python.nix
     ./ranger.nix
-    ./rclone.nix
     ./ripgrep.nix
-    ./s3ql.nix
     ./secrets.nix
     ./shfmt.nix
     ./shellcheck.nix
-    ./tea.nix
+    ./spotify.nix
     ./timewarrior.nix
-    ./tmux.nix
     ./wget.nix
     ./xdg-ninja.nix
     ./xmlstarlet.nix

@@ -50,17 +50,9 @@ with lib;
   };
 
   programs = {
-    # bash = {
-    #   initExtra = ''
-    #     if [ -f "$XDG_RUNTIME_DIR"/secrets/gh_token ] ; then
-    #         export NIX_CONFIG="access-tokens = github.com=$(cat $XDG_RUNTIME_DIR/secrets/gh_token)"
-    #     fi
-    #   '';
-    # };
-
     nix-index = {
       enable = mkDefault true;
-      enableBashIntegration = mkDefault true;
+      enableFishIntegration = mkDefault true;
     };
   };
 }

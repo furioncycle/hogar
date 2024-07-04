@@ -3,26 +3,24 @@
   host = {
     home = {
       applications = {
-        act.enable = false;
-        android-tools.enable = true;
+        android-tools.enable = false;
         calibre.enable = false;
         encfs.enable = false;
         git.enable = true;
-        github-client.enable = false;
-        hugo.enable = false;
-        lazygit.enable = false;
-        nextcloud-client.enable = true;
-        tea.enable = false;
+        iannix.enable = true;
+        neovim.enable = false;
+        obsidian.enable = true;
+        spotify.enable = true;
       };
       feature = {
         gui = {
           enable = true;
           displayServer = "x";
-          windowManager = "cinnamon";
+          windowManager = "cinnamon"; # cinnamon
         };
       };
       service = {
-        decrypt_encfs_workspace.enable = false;
+        # decrypt_enfs_workspace.enable = false;
         vscode-server.enable = false;
       };
     };

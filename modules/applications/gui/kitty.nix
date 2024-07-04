@@ -102,51 +102,51 @@ in
           input_delay = 2;
           select_by_word_characters = ":@-./_~?&=%+#" ; # Characters considered a word when double clicking
         };
-        shellIntegration.enableBashIntegration = true;
+        shellIntegration.enableFishIntegration = true;
         #theme = " ";
       };
 
-      bash = {
-        initExtra = ''
-          clone() {
-              case "$1" in
-                  tab)
-                      clone_arg="--type tab"
-                  ;;
-                  title)
-                      clone_arg="--title '$2'"
-                  ;;
-                  *)
-                      clone_arg=$@
-                  ;;
-              esac
+      # bash = {
+      #   initExtra = ''
+      #     clone() {
+      #         case "$1" in
+      #             tab)
+      #                 clone_arg="--type tab"
+      #             ;;
+      #             title)
+      #                 clone_arg="--title '$2'"
+      #             ;;
+      #             *)
+      #                 clone_arg=$@
+      #             ;;
+      #         esac
 
-              clone-in-kitty $clone_arg
-          }
+      #         clone-in-kitty $clone_arg
+      #     }
 
-          edit() {
-              case "$2" in
-                  tab)
-                      edit_arg="--type tab"
+      #     edit() {
+      #         case "$2" in
+      #             tab)
+      #                 edit_arg="--type tab"
 
-                  ;;
-                  title)
-                      edit_arg="--title '$3'"
-                  ;;
-                  *)
-                      edit_arg="$${@}"
-                  ;;
-              esac
+      #             ;;
+      #             title)
+      #                 edit_arg="--title '$3'"
+      #             ;;
+      #             *)
+      #                 edit_arg="$${@}"
+      #             ;;
+      #         esac
 
-              edit-in-kitty $edit_arg
-          }
+      #         edit-in-kitty $edit_arg
+      #     }
 
-          if [ -n "$KITTY_WINDOW_ID" ]; then
-              alias ssh="kitty +kitten ssh"
-              alias sssh="/run/current-system/sw/bin/ssh"
-          fi
-        '';
-      };
+      #     if [ -n "$KITTY_WINDOW_ID" ]; then
+      #         alias ssh="kitty +kitten ssh"
+      #         alias sssh="/run/current-system/sw/bin/ssh"
+      #     fi
+      #   '';
+      # };
     };
   };
 }

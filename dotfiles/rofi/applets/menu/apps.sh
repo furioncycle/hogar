@@ -70,8 +70,6 @@ case $chosen in
     $browser)
 		if [[ -f /usr/bin/firefox ]]; then
 			firefox &
-		elif [[ -f /usr/bin/chromium ]]; then
-			chromium &
 		elif [[ -f /usr/bin/midori ]]; then
 			midori &
 		else

@@ -14,21 +14,16 @@ with lib;
         };
         bleachbit.enable = mkDefault false;
         blueman.enable = mkDefault true;
-        calibre.enable = mkDefault true;
-        chromium.enable = mkDefault true;
+        calibre.enable = mkDefault false;
         comma.enable = mkDefault true;
         czkawka.enable = mkDefault false;
         diffuse = {
           enable = mkDefault false;
-          defaultApplication.enable = mkDefault true;
+          defaultApplication.enable = mkDefault false;
         };
         drawio = {
           enable = mkDefault false;
-          defaultApplication.enable = mkDefault true;
-        };
-        eog = {
-          enable = mkDefault false;
-          defaultApplication.enable = mkDefault true;
+          defaultApplication.enable = mkDefault false;
         };
         ferdium.enable = mkDefault true;
         firefox = {
@@ -41,13 +36,11 @@ with lib;
         gnome-system-monitor.enable = mkDefault true;
         gparted.enable = mkDefault true;
         greenclip.enable = mkDefault false;
-        hadolint.enable = mkDefault false ;
         kitty.enable = mkDefault true;
         libreoffice.enable = mkDefault false;
         mp3gain.enable = mkDefault true;
         master-pdf-editor.enable = mkDefault true;
         mate-calc.enable = mkDefault true;
-        nextcloud-client.enable = mkDefault false;
         nix-development_tools.enable = mkDefault true;
         nmap.enable = mkDefault true;
         opensnitch-ui.enable = mkDefault false;
@@ -57,26 +50,19 @@ with lib;
         };
         pinta.enable = mkDefault false;
         pulsemixer.enable = mkDefault true;
-        remmina = {
-          enable = mkDefault false;
-          defaultApplication.enable = mkDefault true;
-        };
         seahorse.enable = mkDefault false;
         shellcheck.enable = mkDefault true;
         shfmt.enable = mkDefault true;
-        smartgit.enable = mkDefault false;
         smplayer = {
           enable = mkDefault true;
           defaultApplication.enable = mkDefault true;
         };
         thunar.enable = mkDefault false;
-        thunderbird.enable = mkDefault false;
-        virt-manager.enable = mkDefault true;
+        virt-manager.enable = mkDefault false;
         visual-studio-code = {
-          enable = mkDefault true;
-          defaultApplication.enable = mkDefault true;
+          enable = mkDefault false;
+          defaultApplication.enable = mkDefault false;
         };
-        wps-office.enable = mkDefault true;
         xdg-ninja.enable = mkDefault true;
         xmlstarlet.enable = mkDefault true;
         yq.enable = mkDefault false;

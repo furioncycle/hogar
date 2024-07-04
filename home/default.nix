@@ -1,4 +1,4 @@
-{ config, pkgs, specialArgs, ...}:
+{ specialArgs, ...}:
 let
   inherit (specialArgs) org;
   if-exists = f: builtins.pathExists f;
@@ -11,10 +11,5 @@ in
     ./${org}
   ];
 
-  home = {
-    packages = with pkgs;
-    [
-
-    ];
-  };
+  home = {};
 }

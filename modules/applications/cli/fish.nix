@@ -5,9 +5,9 @@ let
   hasRipgrep = hasPackage "ripgrep";
   hasEza = hasPackage "eza";
   hasNeomutt = config.programs.neomutt.enable;
-  hasShellColor = config.programs.shellcolor.enable;
+  # hasShellColor = config.programs.shellcolor.enable;
   hasKitty = config.programs.kitty.enable;
-  shellcolor = "${pkgs.shellcolord}/bin/shellcolor";
+  # shellcolor = "${pkgs.shellcolord}/bin/shellcolor";
 in
   with lib;
 {
@@ -28,7 +28,7 @@ in
         plugins = [
           {
             name = "fish-ssh-agent";
-            src = pkgs.fetchFromGithub {
+            src = pkgs.fetchFromGitHub {
               owner = "danhper";
               repo = "fish-ssh-agent";
               rev = "fd70a2afdd03caf9bf609746bf6b993b9e83be57";
@@ -70,17 +70,17 @@ in
         };
         functions = {
           fish_greeting ="";
-          ssh = mkIf hasShellColor ''
-            ${shellcolor} disable $fish_pid
-            # Check if kitty is available
-            if set -q KITTY_PID && set -q KITTY_WINDOW_ID && type -q -f kitty
-              kitty +kitten ssh $argv
-            else
-              command ssh $argv
-            end
-            ${shellcolor} enable $fish_pid
-            ${shellcolor} apply $fish_pid
-          '';
+          # ssh = mkIf hasShellColor ''
+          #   ${shellcolor} disable $fish_pid
+          #   # Check if kitty is available
+          #   if set -q KITTY_PID && set -q KITTY_WINDOW_ID && type -q -f kitty
+          #     kitty +kitten ssh $argv
+          #   else
+          #     command ssh $argv
+          #   end
+          #   ${shellcolor} enable $fish_pid
+          #   ${shellcolor} apply $fish_pid
+          # '';
         };
         interactiveShellInit =
           # Open command buffer in vim when alt+e is pressed

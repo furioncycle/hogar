@@ -367,7 +367,6 @@ with lib; {
           set $mode_launcher Launch: [c]hromium [d]iffuse [f]irefox [t]hunderbird [v]scode [z]oom
           bindsym Mod4+o mode "$mode_launcher"
           mode "$mode_launcher" {
-              bindsym c exec chromium ; mode "default"
               bindsym d exec diffuse ; mode "default"
               bindsym f exec firefox ; mode "default"
               bindsym t exec thunderbird ; mode "default"

@@ -41,14 +41,14 @@ in with lib; {
 
   config = mkIf cfg.enable {
     home = {
-      packages = with pkgs; [ pkgs.nur.repos.rycee.mozilla-addons-to-nix ];
+      packages = [ pkgs.nur.repos.rycee.mozilla-addons-to-nix ];
     };
 
     programs.firefox = {
       enable = true;
       package = if pkgs.stdenv.isLinux then pkgs.firefox else pkgs.firefox-bin;
       profiles = {
-        dave = mkIf (username == "dave" || username == "media") {
+        ttecho = mkIf (username == "ttecho") {
           name = username;
           #id = 777;
           isDefault = true;
@@ -132,48 +132,18 @@ in with lib; {
             decentraleyes
             enhanced-github
             #enhancer-for-youtube
-            facebook-container
-            floccus
+            # facebook-container
+            # floccus
             hover-zoom-plus
             multi-account-containers
             image-search-options
             reddit-enhancement-suite
             sponsorblock
-            torrent-control
             tree-style-tab
             ublock-origin
             undoclosetabbutton
             user-agent-string-switcher
             video-downloadhelper
-
-            ### Missing:
-            ## Canadian English Dictionary dictionary 3.1.3 true en-CA@dictionaries.addons.mozilla.org
-            ## Download Manager (S3) extension 5.12 true s3download@statusbar
-            ## F.B Purity - Cleans up Facebook extension 36.8.0.0 true fbpElectroWebExt@fbpurity.com
-            ## Hard Refresh Button extension 1.0.0 true {b6da57d3-9727-4bc0-b974-d13e7c004af0}
-            ## Open With extension 7.2.6 true openwith@darktrojan.net
-            ## PasswordMaker X extension 0.2.2 true passwordmaker@emersion.fr
-            ## Rakuten Canada Button extension 7.8.1 true ebatesca@ebates.com
-            ## StockTrack.ca plugin extension 0.2.4 true {50b98f8c-707d-4dd8-86e4-7c0e15745027}
-            ## The Camelizer extension 3.0.15 true izer@camelcamelcamel.com
-            ## Language: English (CA) locale 114.0.20230608.214645 false langpack-en-CA@firefox.mozilla.org
-
-            # firefox-addons.json | mozilla-addons-to-nix firefox-addons.json output.json
-            #[
-            #  { "slug": "en-CA@dictionaries.addons.mozilla.org" },
-            #  { "slug": "{b6da57d3-9727-4bc0-b974-d13e7c004af0}",
-            #    "pname": "Hard Refresh Button"
-            #  },
-            #  { "slug": "openwith@darktrojan.net" },
-            #  { "slug": "passwordmaker@emersion.fr" },
-            #  { "slug": "ebatesca@ebates.com" },
-            #  { "slug": "{50b98f8c-707d-4dd8-86e4-7c0e15745027}",
-            #    "pname": "StockTrack.ca"
-            #  },
-            #  { "slug": "izer@camelcamelcamel.com" },
-            #  { "slug": "langpack-en-CA@firefox.mozilla.org" },
-            #  { "slug": "s3download@statusbar" }
-            #]
           ];
 
           settings = {
@@ -3005,274 +2975,6 @@ in with lib; {
                 #urlbar[breakout] .search-one-offs {
                 padding-top: 0px !important;
                 padding-bottom: 0px !important;
-                }
-
-          '';
-
-          userContent = "\n";
-        };
-        ireen = mkIf (username == "ireen") {
-          name = username;
-          #id = 777;
-          isDefault = true;
-          search = {
-            force = true;
-            default = "Google";
-            engines = {
-              "Home Manager Options" = {
-                urls = [{
-                  template =
-                    "https://mipmip.github.io/home-manager-option-search/";
-                  params = [{
-                    name = "query";
-                    value = "{searchTerms}";
-                  }];
-                }];
-                icon =
-                  "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-                definedAliases = [ "@hmo" ];
-              };
-
-              "NixOS Options" = {
-                urls = [{
-                  template = "https://search.nixos.org/options";
-                  params = [
-                    {
-                      name = "type";
-                      value = "options";
-                    }
-                    {
-                      name = "query";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }];
-                icon =
-                  "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-                definedAliases = [ "@no" ];
-              };
-
-              "Nix Packages" = {
-                urls = [{
-                  template = "https://search.nixos.org/packages";
-                  params = [
-                    {
-                      name = "type";
-                      value = "packages";
-                    }
-                    {
-                      name = "query";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }];
-                icon =
-                  "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-                definedAliases = [ "@np" ];
-              };
-
-              "NixOS Wiki" = {
-                urls = [{
-                  template =
-                    "https://nixos.wiki/index.php?search={searchTerms}";
-                }];
-                iconUpdateURL = "https://nixos.wiki/favicon.png";
-                updateInterval = 24 * 60 * 60 * 1000;
-                definedAliases = [ "@nw" ];
-              };
-
-              "Wikipedia (en)".metaData.alias = "@wiki";
-              "Google".metaData.hidden = true;
-            };
-          };
-
-          extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-            bitwarden
-            clearurls
-            copy-selected-links
-            decentraleyes
-            facebook-container
-            floccus
-            multi-account-containers
-            image-search-options
-            ublock-origin
-            undoclosetabbutton
-            user-agent-string-switcher
-
-            ### Missing:
-            ## Canadian English Dictionary dictionary 3.1.3 true en-CA@dictionaries.addons.mozilla.org
-            ## Download Manager (S3) extension 5.12 true s3download@statusbar
-            ## F.B Purity - Cleans up Facebook extension 36.8.0.0 true fbpElectroWebExt@fbpurity.com
-            ## Hard Refresh Button extension 1.0.0 true {b6da57d3-9727-4bc0-b974-d13e7c004af0}
-            ## Open With extension 7.2.6 true openwith@darktrojan.net
-            ## Rakuten Canada Button extension 7.8.1 true ebatesca@ebates.com
-            ## StockTrack.ca plugin extension 0.2.4 true {50b98f8c-707d-4dd8-86e4-7c0e15745027}
-            ## The Camelizer extension 3.0.15 true izer@camelcamelcamel.com
-            ## Language: English (CA) locale 114.0.20230608.214645 false langpack-en-CA@firefox.mozilla.org
-          ];
-
-          settings = {
-            # Disable Telemetry (https://support.mozilla.org/kb/share-telemetry-data-mozilla-help-improve-firefox) sends data about the performance and responsiveness of Firefox to Mozilla.
-            "toolkit.telemetry.enabled" = false;
-            "toolkit.telemetry.archive.enabled" = false;
-            "toolkit.telemetry.rejected" = true;
-            "toolkit.telemetry.unified" = false;
-            "toolkit.telemetry.unifiedIsOptIn" = false;
-            "toolkit.telemetry.prompted" = 2;
-            "toolkit.telemetry.server" = "";
-            "toolkit.telemetry.cachedClientID" = "";
-            "toolkit.telemetry.newProfilePing.enabled" = false;
-            "toolkit.telemetry.shutdownPingSender.enabled" = false;
-            "toolkit.telemetry.updatePing.enabled" = false;
-            "toolkit.telemetry.bhrPing.enabled" = false;
-            "toolkit.telemetry.firstShutdownPing.enabled" = false;
-            "toolkit.telemetry.hybridContent.enabled" = false;
-            "toolkit.telemetry.reportingpolicy.firstRun" = false;
-            # Disable health report - Disable sending Firefox health reports(https://www.mozilla.org/privacy/firefox/#health-report) to Mozilla.
-            "datareporting.healthreport.uploadEnabled" = false;
-            "datareporting.policy.dataSubmissionEnabled" = false;
-            "datareporting.healthreport.service.enabled" = false;
-            # Disable shield studies (https://wiki.mozilla.org/Firefox/Shield) is a feature which allows mozilla to remotely install experimental addons.
-            "app.normandy.enabled" = false;
-            "app.normandy.api_url" = "";
-            "app.shield.optoutstudies.enabled" = false;
-            "extensions.shield-recipe-client.enabled" = false;
-            "extensions.shield-recipe-client.api_url" = "";
-            # Disable experiments (https://wiki.mozilla.org/Telemetry/Experiments) allows automatically download and run specially-designed restartless addons based on certain conditions.
-            "experiments.enabled" = false;
-            "experiments.manifest.uri" = "";
-            "experiments.supported" = false;
-            "experiments.activeExperiment" = false;
-            "network.allow-experiments" = false;
-            # Disable Crash Reports (https://www.mozilla.org/privacy/firefox/#crash-reporter) as it may contain data that identifies you or is otherwise sensitive to you.
-            "breakpad.reportURL" = "";
-            "browser.tabs.crashReporting.sendReport" = false;
-            "browser.crashReports.unsubmittedCheck.enabled" = false;
-            "browser.crashReports.unsubmittedCheck.autoSubmit" = false;
-            "browser.crashReports.unsubmittedCheck .autoSubmit2" = false;
-            "extensions.getAddons.cache.enabled" = false; # Opt out metadata updates about installed addons as metadata updates (https://blog.mozilla.org/addons/how-to-opt-out-of-add-on-metadata-updates/), so Mozilla is able to recommend you other addons.
-            # Disable google safebrowsing - Detect phishing and malware but it also sends informations to google together with an unique id called wrkey (http://electroholiker.de/?p=1594).
-            "browser.safebrowsing.enabled" = false;
-            "browser.safebrowsing.downloads.remote.url" = "";
-            "browser.safebrowsing.phishing.enabled" = false;
-            "browser.safebrowsing.blockedURIs.enabled" = false;
-            "browser.safebrowsing.downloads.enabled" = false;
-            "browser.safebrowsing.downloads.remote.enabled" = false;
-            "browser.safebrowsing.appRepURL" = "";
-            "browser.safebrowsing.malware.enabled" = false; # Disable malware scan -  sends an unique identifier for each downloaded file to Google.
-            "network.trr.mode" = 5; # Disable DNS over HTTPS  aka. Trusted Recursive Resolver (TRR)
-            "network.captive-portal-service.enabled" = false; # Disable check for captive portal. By default, Firefox checks for the presence of a captive portal on every startup.  This involves traffic to Akamai. (https://support.mozilla.org/questions/1169302).
-            "browser.urlbar.groupLabels.enabled" = false; # Disable Firefox Suggest(https://support.mozilla.org/en-US/kb/navigate-web-faster-firefox-suggest) feature allows Mozilla to provide search suggestions in the US, which uses your city location and search keywords to send suggestions. This is also used to serve advertisements.
-            "browser.urlbar.quicksuggest.enabled" = false; # Disable Firefox Suggest(https://support.mozilla.org/en-US/kb/navigate-web-faster-firefox-suggest) feature allows Mozilla to provide search suggestions in the US, which uses your city location and search keywords to send suggestions. This is also used to serve advertisements.
-
-            ## Security
-            "app.update.auto" = true; # Disable automatic updates.
-            "browser.aboutConfig.showWarning" = false; # Disable about:config warning.
-            "browser.disableResetPrompt" = true; # Disable reset prompt.
-            "browser.newtabpage.activity-stream.section.highlights.includePocket" = false; # Disable Pocket
-            "browser.newtabpage.enhanced" = false; # Content of the new tab page
-            "browser.newtabpage.introShown" = false; # Disable the intro to the newtab page on the first run
-            "browser.selfsupport.url" = ""; # Disable Heartbeat Userrating
-            "browser.shell.checkDefaultBrowser" = false; # Disable checking if Firefox is the default browser
-            "browser.startup.homepage_override.mstone" = "ignore"; # Disable the first run tabs with advertisements for the latest firefox features.
-            "browser.urlbar.trimURLs" = false; # Do not trim URLs in navigation bar
-            "dom.security.https_only_mode" = true; # Enable HTTPS only mode
-            "dom.security.https_only_mode_ever_enabled" = true; # Enable HTTPS only mode
-            "extensions.blocklist.enabled" = false; # Disable extension blocklist from mozilla.
-            "extensions.pocket.enabled" = false; # Disable Pocket
-            "media.autoplay.default" = 0; # Disable autoplay of video tags.
-            "media.autoplay.enabled" = true; # Disable autoplay of video tags.
-            "network.IDN_show_punycode" = true; # Show Punycode.
-            "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSite" = false; # Disable Sponsored Top Sites
-
-            ## Extra Settings
-            "browser.cache.disk.enable" = false;
-            "browser.compactmode.show" = true;
-            "browser.download.always_ask_before_handling_new_types" = true;
-            "browser.engagement.ctrlTab.has-used" = true;
-            "browser.engagement.downloads-button.has-used" = true;
-            "browser.engagement.fxa-toolbar-menu-button.has-used" = true;
-            "browser.engagement.library-button.has-used" = true;
-            "browser.formfill.enable" = false;
-            "browser.tabs.closeTabByDblclick" = true;
-            "browser.tabs.insertAfterCurrent" = true;
-            "browser.tabs.loadBookmarksInTabs" = true;
-            "browser.tabs.tabmanager.enabled" = false; # Tab
-            "browser.tabs.warnOnClose" = false;
-            "browser.toolbars.bookmarks.visibility" = "always";
-            "browser.uitour.enabled" = false;
-            "browser.urlbar.clickSelectsAll" = true;
-            "browser.urlbar.suggest.quickactions" = false; # URL Suggestions
-            "browser.urlbar.suggest.topsites" = false; # URL Suggestions
-            "devtools.everOpened" = true;
-            "extensions.formautofill.addresses.enabled" = false;
-            "extensions.formautofill.creditCards.enabled" = false;
-            "extensions.formautofill.heuristics.enabled" = false;
-            "extensions.screenshots.disabled" = true;
-            "font.internaluseonly.changed" = false; # Fonts
-            "font.name.monospace.x-western" = "Droid Sans Mono"; # Fonts
-            "font.name.sans-serif.x-western" = "Noto Sans"; # Fonts
-            "font.name.serif.x-western" = "Noto Sans"; # Fonts
-            "font.size.fixed.x-western" = "11"; # Fonts
-            "font.size.variable.x-western" = "15"; # Fonts
-            "general.smoothScroll" = true; # enable smooth scrolling
-            "gfx.webrender.all" = true; # Force using WebRender. Improve performance
-            "gfx.webrender.enabled" = true; # Force using WebRender. Improve performance
-            "media.ffmpeg.vaapi.enabled" = true; # https://wiki.archlinux.org/title/firefox#Hardware_video_acceleration
-            "media.ffvpx.enabled" = false; # https://wiki.archlinux.org/title/firefox#Hardware_video_acceleration
-            "media.videocontrols.picture-in-picture.allow-multiple" = true; # Enable multi-pip
-            "pref.general.disable_button.default_browser" = false;
-            "pref.privacy.disable_button.cookie_exceptions" = false;
-            "pref.privacy.disable_button.tracking_protection_exceptions" = false;
-            "pref.privacy.disable_button.view_passwords" = false;
-            "print.more-settings.open" = true;
-            "privacy.clearOnShutdown.cache" = false; # Privacy
-            "privacy.clearOnShutdown.cookies" = false; # Privacy
-            "privacy.clearOnShutdown.downloads" = false; # Privacy
-            "privacy.clearOnShutdown.formdata" = false; # Privacy
-            "privacy.clearOnShutdown.history" = false; # Privacy
-            "privacy.clearOnShutdown.sessions" = false; # Privacy
-            "privacy.cpd.cache" = false; # Privacy
-            "privacy.cpd.cookies" = false; # Privacy
-            "privacy.cpd.downloads" = false; # Privacy
-            "privacy.cpd.formdata" = false; # Privacy
-            "privacy.cpd.history" = false; # Privacy
-            "privacy.cpd.offlineApps" = true; # Privacy
-            "privacy.cpd.sessions" = false; # Privacy
-            "privacy.donottrackheader.enabled" = true; # Privacy
-            "privacy.history.custom" = true; # Privacy
-            "privacy.partition.network_state.ocsp_cache" = true; # Privacy
-            "privacy.trackingprotection.enabled" = true; # Privacy
-            "privacy.trackingprotection.socialtracking.enabled" =
-              true; # Privacy
-            "privacy.userContext.enabled" = true; # Privacy
-            "privacy.userContext.longPressBehavior" = "2"; # Privacy
-            "privacy.userContext.newTabContainerOnLeftClick.enabled" =
-              false; # Privacy
-            "privacy.userContext.ui.enabled" = true; # Privacy
-            "signon.management.page.breach-alerts.enabled" = false;
-            "signon.rememberSignons" = false;
-            "ui.context_menus.after_mouseup" = true;
-            "widget.use-xdg-desktop-portal" = true;
-          };
-
-          extraConfig = ''
-            user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-            user_pref("full-screen-api.ignore-widgets", true);
-            user_pref("media.ffmpeg.vaapi.enabled", true);
-            user_pref("media.rdd-vpx.enabled", true);
-          '';
-
-          userChrome = ''
-            /* CUSTOM: General *?
-                :root {
-
-                /* for increase_ui_font_size.css */
-                --general_ui_font_size: 10pt !important;
-
-            /* CUSTOM: What's new button hidden always */
-                #PanelUI-button #whats-new-menu-button {
-                    display: none !important;
                 }
 
           '';

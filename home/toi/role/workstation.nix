@@ -7,24 +7,21 @@ with lib;
   host = {
     home = {
       applications = {
-        act.enable = mkDefault false;
         android-tools.enable = mkDefault false;
         calibre = {
           enable = mkDefault false;
-          defaultApplication.enable = mkDefault true;
+          defaultApplication.enable = mkDefault false;
         };
-        docker-compose.enable = mkDefault false;
+        direnv.enable = mkDefault true;
         git.enable = mkDefault true;
         encfs.enable = mkDefault false;
         neovim.enable = mkDefault false;
-        nextcloud-client.enable = mkDefault false;
-        tea.enable = mkDefault false;
       };
       feature = {
       };
       service = {
         decrypt_encfs_workspace.enable = mkDefault false;
-        vscode-server.enable = mkDefault true;
+        vscode-server.enable = mkDefault false;
       };
     };
   };
