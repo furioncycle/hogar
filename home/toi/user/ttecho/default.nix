@@ -8,6 +8,8 @@ in
     home = {
       applications = {
         git.enable = mkDefault true;
+        edge.enable = mkDefault true;
+        zed.enable = mkDefault true;
       };
     };
   };

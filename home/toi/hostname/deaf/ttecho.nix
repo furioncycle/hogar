@@ -8,7 +8,6 @@
         encfs.enable = false;
         git.enable = true;
         iannix.enable = true;
-        neovim.enable = false;
         obsidian.enable = true;
         spotify.enable = true;
       };

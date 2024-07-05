@@ -18,7 +18,6 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";    
     nixpkgs-small.url = "github:NixOS/nixpkgs/nixos-unstable-small";
-    comma.url = "github:nix-community/comma";
     flake-utils.url = "github:numtide/flake-utils";
     helix-master = {
       url = "github:SoraTenshi/helix/new-daily-driver";
@@ -30,10 +29,6 @@
     };
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    };
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-colors.url = "github:misterio77/nix-colors";
     nix-index-database = {
@@ -55,10 +50,6 @@
       url = "github:zigtools/zls";
       inputs.nixpkgs.follows = "nixpkgs";
     };  
-    schizofox = {
-      url = "github:schizofox/schizofox";
-      inputs.nixpkgs.follows = "nixpkgs-small";
-    };
   };
 
   outputs = { self, nixpkgs, flake-utils, home-manager, ... }@inputs:
@@ -68,7 +59,6 @@
 
       pkgsForSystem = system: import nixpkgs {
         overlays = [
-          inputs.comma.overlays.default
           inputs.nur.overlay
           inputs.nix-vscode-extensions.overlays.default
           inputs.nixpkgs-wayland.overlay

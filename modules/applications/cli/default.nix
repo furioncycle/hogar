@@ -7,7 +7,6 @@ with lib;
     ./bat.nix
     ./bash.nix
     ./btop.nix
-    ./comma.nix
     ./development.nix
     ./direnv.nix
     ./duf.nix
@@ -19,7 +18,6 @@ with lib;
     ./git.nix
     ./gnupg.nix
     ./helix
-    ./hugo.nix
     ./htop.nix
     ./jq.nix
     ./less.nix
@@ -29,10 +27,8 @@ with lib;
     ./mtr.nix
     ./ncdu.nix
     ./neofetch.nix
-    ./neovim
     ./nix-developmenttools.nix
     ./nmap.nix
-    ./python.nix
     ./ranger.nix
     ./ripgrep.nix
     ./secrets.nix
@@ -42,9 +38,6 @@ with lib;
     ./timewarrior.nix
     ./wget.nix
     ./xdg-ninja.nix
-    ./xmlstarlet.nix
-    ./yq.nix
-    ./yt-dlp.nix
     ./zathura.nix
     ./zenity.nix
     ./zoxide.nix

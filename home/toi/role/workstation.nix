@@ -15,7 +15,6 @@ with lib;
         direnv.enable = mkDefault true;
         git.enable = mkDefault true;
         encfs.enable = mkDefault false;
-        neovim.enable = mkDefault false;
       };
       feature = {
       };

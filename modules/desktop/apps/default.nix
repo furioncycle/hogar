@@ -6,7 +6,6 @@ with lib;
     ./alttab.nix
     ./arandr.nix
     ./autotiling.nix
-    ./autokey.nix
     ./betterlockscreen.nix
     ./cliphist.nix
     ./feh.nix

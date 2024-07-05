@@ -10,7 +10,6 @@ in
       home = {
         applications = {
           arandr.enable = true;
-          autokey.enable = mkDefault true;
           redshift.enable = true;
           sysstat.enable = true;
           xbindkeys.enable = true;

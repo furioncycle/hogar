@@ -10,12 +10,12 @@ with lib;
     ./diffuse.nix
     ./drawio.nix
     ./dunst.nix
+    ./edge.nix
     ./eog.nix
     ./ferdium.nix
     ./file-roller.nix
     ./firefox.nix
     ./flameshot.nix
-    ./geeqie.nix
     ./gnomeencfsmanager.nix
     ./gnomesystemmonitor.nix
     ./gparted.nix
@@ -25,7 +25,6 @@ with lib;
     ./kitty.nix
     ./libreoffice.nix
     ./masterpdfeditor.nix
-    ./mate-calc.nix
     ./obsidian.nix
     ./opensnitch-ui.nix
     ./openshot.nix
@@ -39,6 +38,6 @@ with lib;
     ./veracrypt.nix
     ./virt-manager.nix
     ./vscode.nix
-    ./zoom.nix
+    ./zed.nix
   ];
 }
