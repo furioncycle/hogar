@@ -36,7 +36,7 @@ with lib;
 
   config = mkIf (config.host.home.feature.gui.enable && displayServer == "wayland" && windowManager == "hyprland") {
     home = {
-      packages = with pkgs;
+      packages =
         [
           gameMode
           #hyprland-share-picker     # If this works outside of Hyprland modularize
@@ -57,7 +57,7 @@ with lib;
       enable = true;
       xwayland.enable = true;
       extraConfig = ''
-        source=~/src/home/dotfiles/hypr/hyprland.conf
+        source=~/.config/home-manager/dotfiles/hypr/hyprland.conf
 
         # Hardware
 
@@ -104,7 +104,7 @@ with lib;
         misc {
           disable_hyprland_logo = true
           disable_splash_rendering = true
-          force_hypr_chan = false
+          # force_hypr_chan = false
           #key_press_enables_dpms = true
           #vrr = 1
         }
@@ -119,15 +119,15 @@ with lib;
         workspace=$monitor_right,3
         workspace=$monitor_right,6
         workspace=$monitor_right,9
-        wsbind 1,$monitor_left
-        wsbind 4,$monitor_left
-        wsbind 7,$monitor_left
-        wsbind 2,$monitor_middle
-        wsbind 5,$monitor_middle
-        wsbind 8,$monitor_middle
-        wsbind 3,$monitor_right
-        wsbind 6,$monitor_right
-        wsbind 9,$monitor_right
+        # wsbind 1,$monitor_left
+        # wsbind 4,$monitor_left
+        # wsbind 7,$monitor_left
+        # wsbind 2,$monitor_middle
+        # wsbind 5,$monitor_middle
+        # wsbind 8,$monitor_middle
+        # wsbind 3,$monitor_right
+        # wsbind 6,$monitor_right
+        # wsbind 9,$monitor_right
 
         # Startup Applications
         #exec-once = dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY
@@ -235,6 +235,7 @@ with lib;
 
         # Keybinds
         $mainMod = SUPER
+        bind = $mainMod, B, exec, firefox # TODO sessionVariable for all browsers
         bind = $mainMod, D, exec, pkill rofi || rofi -combi-modi window,drun,ssh,run -show combi -show-icons
         bind = $mainMod, J, togglesplit, # dwindle
         bind = $mainMod, P, pseudo,      # dwindle
@@ -339,13 +340,13 @@ with lib;
     };
 
     xdg.configFile."hypr/hyprpaper.conf".text = ''
-      preload = ~/.config/hypr/background/left.jpg
-      preload = ~/.config/hypr/background/middle.jpg
-      preload = ~/.config/hypr/background/right.jpg
+      preload = ~/.config/home-manager/dotfiles/hypr/background/left.jpg
+      preload = ~/.config/home-manager/dotfiles/hypr/background/middle.jpg
+      preload = ~/.config/home-manager/dotfiles/hypr/background/right.jpg
 
-      wallpaper = HDMI-A-1,~/.config/hypr/background/right.jpg
-      wallpaper = DP-2,~/.config/hypr/background/middle.jpg
-      wallpaper = DP-3,~/.config/hypr/background/left.jpg
+      wallpaper = HDMI-A-1,~/.config/home-manager/dotfiles/hypr/background/right.jpg
+      wallpaper = DP-2,~/.config/home-manager/dotfiles/hypr/background/middle.jpg
+      wallpaper = DP-3,~/.config/home-manager/dotfiles/hypr/background/left.jpg
     '';
 
     xsession = {
