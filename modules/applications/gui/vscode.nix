@@ -47,35 +47,27 @@ in
   config = mkIf cfg.enable {
     programs.vscode =  {
       enable = true;
+      package = pkgs.vscodium.fhs;
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = true;
       extensions = with inputs.nix-vscode-extensions.extensions.x86_64-linux.vscode-marketplace; [
         ## Bundles
           lizebang.bash-extension-pack              # Bash shell
 
-        ## Docker
-          # ms-azuretools.vscode-docker               # Docker containers, images, and volumes
-
         ## Editor Helpers
           tyriar.sort-lines                         # Sort Lines
           fabiospampinato.vscode-diff               # Show differences between files
-          hilleer.yaml-plus-json                    # JSON <> YAML converter
           jinhyuk.replace-curly-quotes              # Replace all ` with '
-          nickdemayo.vscode-json-editor             # JSON Editor
           rpinski.shebang-snippets                  # Shebang helpers when typing #!
           shd101wyy.markdown-preview-enhanced       # Better Markdown Preview
-          tombonnike.vscode-status-bar-format-toggle # Toggle formatting with a single click
           uyiosa-enabulele.reopenclosedtab          # Reopen last tab
-          ziyasal.vscode-open-in-github             # Jump to a source code line in Github, Bitbucket, Gitlab, VisualStudio.com
           emeraldwalk.runonsave
-          vscodevim.vim
         ## CI
           github.vscode-github-actions              # Github actions helper
 
         ## Prettify / Formatting
           brettm12345.nixfmt-vscode                 # Nix TODO: Split and force programs to be installed
           esbenp.prettier-vscode                    # JavaScript TypeScript Flow JSX JSON CSS SCSS Less HTML Vue Angular HANDLEBARS Ember Glimmer GraphQL Markdown YAML
-          richie5um2.vscode-sort-json               # JSON
           shakram02.bash-beautify                   # Bash
           yzhang.markdown-all-in-one                # Markown
           davidanson.vscode-markdownlint            # Markdown
@@ -90,15 +82,12 @@ in
           # adacore.ada-language-server
           bbenoist.nix                              # Nix
           bierner.markdown-mermaid                  # MermaidJS in MarkDown
-          dunstontc.vscode-docker-syntax            # DockerFile
           evgeniypeshkov.syntax-highlighter         # C++, C, Python, TypeScript, TypeScriptReact, JavaScript, Go, Rust, Php, Ruby, ShellScript, Bash, OCaml, Lua
           foxundermoon.shell-format                 # Bash
-          redhat.vscode-yaml                        # YAML
           timonwong.shellcheck                      # Bash TODO: Split and force shellcheck binary to be installed
           oderwat.indent-rainbow                    # Visual indenting
 
           rust-lang.rust-analyzer                   # Rust tooling
-          ms-python.python                          # Pyton tooling
 
         ## Themes
           catppuccin.catppuccin-vsc
@@ -107,15 +96,7 @@ in
           gruntfuggly.todo-tree 
           # uiua-lang.uiua-vscode
           
-       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "ide-vscode";
-          publisher = "dafny-lang";
-          version = "3.3.0";
-          sha256 = "sha256-YVmwFE4GiAgEOGhg9YmRa4DkWtdjk7hO5p++suj4Pn4=";
-        }
-      ];
-      
+       ];      
       keybindings = [
         ## Favorites
         {
@@ -223,13 +204,6 @@ in
           ];
         };
 
-        ## Docker
-        # "docker.commands.attach" = "$${containerCommand} exec -it $${containerId} $${shellCommand}" ;
-        # "docker.containers.description" = ["ContainerName" "Status" ] ;
-        # "docker.containers.label" = "ContainerName" ;
-        # "docker.containers.sortBy" = "Label" ;
-        # "docker.volumes.label" = "VolumeName" ;
-
         ## Editor
         "editor.bracketPairColorization.enabled" = true;
         "editor.copyWithSyntaxHighlighting" = false ;
@@ -255,13 +229,10 @@ in
         "workbench.colorTheme" =  "Catppuccin Mocha";
 
         ## Formatting
-        "[dockerfile]" = { "editor.defaultFormatter" = "foxundermoon.shell-format" ;};
         "[html]" = { "editor.defaultFormatter" = "esbenp.prettier-vscode" ;};
-        "[json]" = { "editor.defaultFormatter" = "vscode.json-language-features" ;};
         "[jsonc]" = {"editor.defaultFormatter" = "esbenp.prettier-vscode" ;};
         "[markdown]" = { "editor.defaultFormatter" = "yzhang.markdown-all-in-one" ;};
         "[shellscript]" = { "editor.defaultFormatter" = "foxundermoon.shell-format" ;};
-        "[yaml]" = {"editor.defaultFormatter" = "esbenp.prettier-vscode" ;};
         "markdown.extension.print.imgToBase64" = true;
         "markdown.extension.toc.levels" = "2..6";
         "shellcheck.enableQuickFix" = true;
@@ -305,7 +276,6 @@ in
         "security.workspace.trust.untrustedFiles" = "open";
 
         ## Telemetry
-        "redhat.telemetry.enabled" = false;
         "telemetry.telemetryLevel" = "off";
         "update.mode" = "none";
 
@@ -315,16 +285,8 @@ in
 
         mutableExtensionsDir = false;
 
-        "remote.SSH.serverInstallPath" = { "eyesy.local" = "/sdcard/"; };
-
-        ## Dafny
-        "dafny.automaticVerification" = "onchange";
-        "dafny.dotnetExecutablePath" = "${pkgs.dotnet-sdk}/bin/dotnet";
-        "dafny.cliPath" = "${pkgs.dafny}/bin/dafny";
-        "dafny.version" = "4.6.0";
       };
     };
-    # programs.dafny.enable = true;
     xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication.enable (
       lib.genAttrs cfg.defaultApplication.mimeTypes (_: "code.desktop")
     );

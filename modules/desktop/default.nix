@@ -43,16 +43,5 @@ with lib;
           xdg-utils     # Desktop integration
         ];
     };
-
-    services = {
-      gnome-keyring = {
-        enable = true;
-        components = [
-          "pkcs11"
-          "secrets"
-          "ssh"
-        ];
-      };
-    };
   };
 }

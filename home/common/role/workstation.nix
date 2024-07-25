@@ -56,10 +56,6 @@ with lib;
         };
         thunar.enable = mkDefault false;
         virt-manager.enable = mkDefault false;
-        visual-studio-code = {
-          enable = mkDefault false;
-          defaultApplication.enable = mkDefault false;
-        };
         xdg-ninja.enable = mkDefault true;
         zathura = {
           enable = mkDefault true;

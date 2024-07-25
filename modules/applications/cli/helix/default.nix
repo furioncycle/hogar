@@ -15,17 +15,25 @@ in
   };
 
   config = mkIf cfg.enable {
+
+     # imports = [ ./languages.nix ];
+    
      programs.helix = {
         enable = true;
         extraPackages = with pkgs; [
-           nil
+           alejandra
+           bash-language-server
            gopls
-           rust-analyzer
+           lldb
+           marksman
+           nil
            python311Packages.python-lsp-server
-           zls         
+           rust-analyzer
+           zls
+           # helix-gpt
         ];
         defaultEditor = true;
-        ignores = [ "!.gitignore" ".zig-cache" "zig-out" "!.envrc" "obj" "bin" "!.git" "!.github" ];
+        ignores = [ "!.gitignore" "!.zig-cache" "zig-out" "!.envrc" "obj" "bin" "!.git" "!.github" "!.gitlab"];
         settings = {
            theme = "bogster";
            editor = {
@@ -38,60 +46,68 @@ in
              rainbow-brackets = true;
              bufferline = "always";
              rulers = [ 100 ];
+             popup-border = true;
              soft-wrap.enable = true;
              completion-replace = true;
+             mouse = false;
+             sticky-context = {
+               enable = true;
+               indicator = false;
+             };
 
-              sticky-context = {
-                enable = true;
-                indicator = false;
-              };
+             lsp = {
+               display-messages = true;
+               display-inlay-hints = true;
+             };
 
-              lsp = {
-                display-messages = true;
-                display-inlay-hints = true;
-              };
-              
-              whitespace.render = "all";
-              whitespace.characters = {
-                space = "·";
-                nbsp = "⍽";
-                tab = "→";
-                newline = "⤶";
-              };
+             inline-diagnostics = {
+              cursor-line = "hint";
+              other-lines = "error";
+            };
+            
+            whitespace.render = "all";
+            whitespace.characters = {
+              space = "·";
+              nbsp = "⍽";
+              tab = "→";
+              newline = "⤶";
+            };
 
-              gutters = [ "diagnostics" "line-numbers" "spacer" "diff"];
-              statusline = {
-                separator = "of";
-                left = [ "mode" "selections" "file-type" "register" "spinner" "diagnostics" ];
-                center = [ "file-name" ];
-                right = [ "file-encoding" "file-line-ending" "position-percentage" "spacer" "separator" "total-line-numbers" ];
-                mode = {
-                  normal = "NORMAL";
-                  insert = "INSERT";
-                  select = "SELECT";
-                };
-              };
-              indent-guides = {
-                render = true;
-                rainbow-option = "normal";
-              };
+             gutters = [ "diagnostics" "line-numbers" "spacer" "diff"];
+             statusline = {
+               separator = "of";
+               left = [ "mode" "selections" "file-type" "register" "spinner" "diagnostics" ];
+               center = [ "file-name" ];
+               right = [ "file-encoding" "file-line-ending" "position-percentage" "spacer" "separator" "total-line-numbers" ];
+               mode = {
+                 normal = "NORMAL";
+                 insert = "INSERT";
+                 select = "SELECT";
+               };
+             };
+             indent-guides = {
+               render = true;
+               rainbow-option = "normal";
+             };
            };
 
-           keys.normal = {
-             "X" = "extend_line_above";
+           keys = {
+            normal = {
+              "X" = "extend_line_above";
              "C-q" = ":bc";
              "C-d" = ["half_page_down" "align_view_center"];
              "C-u" = ["half_page_up" "align_view_center"];
              "C-s" = ":w";
-           };
-
-           keys.normal."\\" = {
-             "t" = [":vs ~/todo.md"];
-           };
-
-           keys.insert = {
+              "\\" = {
+                 "t" = [":vs ~/todo.md"];
+              };
+              "g.a" = "code_action";
+              "D" = "delete_char_backword";
+            };
+            insert = {
              "j" = { "k" = "normal_mode"; };
-           };
+            };
+          };
         };
       };   
 

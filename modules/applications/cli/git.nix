@@ -22,7 +22,7 @@ in
         lfs.enable = true;
         delta.enable = true;
         userName = "furioncycle";
-        ignores = [ "*~" ".direnv" ".env" ".rgignore" ];
+        ignores = [ "*~" ".direnv" ".env" ".rgignore" ".envrc" ];
         extraConfig = {
           init = { defaultBranch = "main"; };
           pull = { ff = "only"; };

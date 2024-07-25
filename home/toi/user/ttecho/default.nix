@@ -1,15 +1,11 @@
-{ config, lib, pkgs, specialArgs, ...}:
-let
-  inherit (specialArgs) username;
-in
+{ lib, ...}:
   with lib;
 {
   host = {
     home = {
       applications = {
         git.enable = mkDefault true;
-        edge.enable = mkDefault true;
-        zed.enable = mkDefault true;
+        
       };
     };
   };
