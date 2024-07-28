@@ -22,7 +22,7 @@ in
         enable = true;
         extraPackages = with pkgs; [
            alejandra
-           bash-language-server
+           # bash-language-server
            gopls
            lldb
            marksman
@@ -46,7 +46,7 @@ in
              rainbow-brackets = true;
              bufferline = "always";
              rulers = [ 100 ];
-             popup-border = true;
+             popup-border = "popup";
              soft-wrap.enable = true;
              completion-replace = true;
              mouse = false;
@@ -101,8 +101,13 @@ in
               "\\" = {
                  "t" = [":vs ~/todo.md"];
               };
-              "g.a" = "code_action";
-              "D" = "delete_char_backword";
+              "g" = {
+                "a" = "code_action";
+              };
+              "+" = {
+                "c" = ":run-shell-command cargo build";
+                "t" = ":run-shell-command cargo test";
+              };
             };
             insert = {
              "j" = { "k" = "normal_mode"; };
