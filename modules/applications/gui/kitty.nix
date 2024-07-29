@@ -20,8 +20,8 @@ in
       kitty = {
         enable = true;
         font = {
-          name = "Hack";
-          size = 11.0;
+          name = "Atkinson Hyperlegible";
+          size = 10.0;
         };
         keybindings = {
           "ctrl+shift+c" = "copy_and_clear_or_interrupt";

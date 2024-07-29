@@ -39,6 +39,7 @@ in
       roboto
       ubuntu_font_family
       weather-icons
+      atkinson-hyperlegible
       # nerdfonts
       (nerdfonts.override { fonts = [
         "DroidSansMono"
