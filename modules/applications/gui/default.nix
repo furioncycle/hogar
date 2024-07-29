@@ -3,6 +3,7 @@ with lib;
 {
   imports = [
     ./ark.nix
+    ./bitwarden.nix
     ./bleachbit.nix
     ./blueman.nix
     ./calibre.nix
@@ -38,6 +39,7 @@ with lib;
     ./veracrypt.nix
     ./virt-manager.nix
     ./vscode.nix
+    ./yubi.nix
     ./zed.nix
   ];
 }

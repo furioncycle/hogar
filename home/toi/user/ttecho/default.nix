@@ -5,7 +5,8 @@
     home = {
       applications = {
         git.enable = mkDefault true;
-        
+        bitwarden.enable = mkDefault true;
+        yubi.enable = mkDefault true;
       };
     };
   };
