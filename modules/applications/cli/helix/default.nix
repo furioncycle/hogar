@@ -14,11 +14,11 @@ in
     };
   };
 
+  # imports = [ ./languages.nix];
+
   config = mkIf cfg.enable {
 
-    imports = [ ./languages.nix ];
-    
-     programs.helix = {
+    programs.helix = {
         enable = true;
         extraPackages = with pkgs; [
            alejandra
@@ -29,6 +29,7 @@ in
            nil
            python311Packages.python-lsp-server
            rust-analyzer
+           typos-lsp
            zls
            # helix-gpt
         ];
@@ -114,7 +115,77 @@ in
             };
           };
         };
-      };   
+
+      languages = {
+        language-server = {
+          nil = {
+            command = "${pkgs.nil}/bin/nil";
+          };
+          rust-analyzer = {
+            command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+            config.rust-analyzer = {
+              cargo.loadDirsFromCheck = true;
+              checkOnSave.command = "clippy";
+              procMacro.enable = true;
+              lens = {
+                references = true;
+                methodReferences = true;
+              };
+              completion.autoimport.enable = true;
+            };
+          };
+          bash-language-server = {
+            command = lib.getExe pkgs.nodePackages_latest.bash-language-server;
+            args = ["start"];
+          };
+          typos = {
+            command = "${pkgs.typos-lsp}/bin/typos-lsp";
+          };
+        };   
+
+        language = [
+          {
+            name = "nix";
+            auto-format = true;
+            language-servers = [ "nil" "typos" ];
+            formatter = {
+              command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
+            };
+          }
+          {
+            name = "rust";
+            auto-format = true;
+            language-servers = [ "rust-analyzer" "typos" ];
+          }
+          {
+            name = "go";
+            language-servers = ["gopls" "typos" ];
+            formatter = {
+              command = "goimports";
+            };
+            auto-format = true;
+          }
+          {
+            name = "markdown";
+            language-servers = ["marksman" "typos" ];
+            formatter = {
+              command = "prettier";
+              args = ["--stdin-filepath" "file.md"];
+            };
+            auto-format = true;
+          }
+          {
+            name = "bash";
+            formatter = {
+              command = lib.getExe pkgs.shfmt;
+              args = ["-i" "2"];
+            };
+            auto-format = true;
+          }
+        ]; 
+      };
+            
+    };   
 
    xdg.configFile."zls.json".text = builtins.toJSON {
       "$schema" = "https://raw.githubusercontent.com/zigtools/zls/master/schema.json";
