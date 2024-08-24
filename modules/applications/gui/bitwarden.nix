@@ -1,15 +1,15 @@
 { config, lib, pkgs, ...}:
 let
-   cfg = config.host.home.applications.yubi;
+   cfg = config.host.home.applications.bitwarden;
 in
-  with lib;
+   with lib;
 {
   options = {
-    host.home.applications.yubi = {
+    host.home.applications.bitwarden = {
       enable = mkOption {
         default = false;
         type = with types; bool;
-        description = "Yubi auth app";
+        description = "Bitwarden password manager application";
       };
     };
   };
@@ -17,7 +17,8 @@ in
   config = mkIf cfg.enable {
     home = {
       packages = [
-        pkgs.yubioath-flutter
+        pkgs.bitwarden-desktop
+        pkgs.bitwarden-cli
       ];
     };
   };

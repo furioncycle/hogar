@@ -16,13 +16,13 @@ in
 
   config = mkIf cfg.enable {
 
-     # imports = [ ./languages.nix ];
+    imports = [ ./languages.nix ];
     
      programs.helix = {
         enable = true;
         extraPackages = with pkgs; [
            alejandra
-           # bash-language-server
+           nodePackages_latest.bash-language-server
            gopls
            lldb
            marksman
@@ -65,13 +65,13 @@ in
               other-lines = "error";
             };
             
-            whitespace.render = "all";
-            whitespace.characters = {
-              space = "·";
-              nbsp = "⍽";
-              tab = "→";
-              newline = "⤶";
-            };
+            # whitespace.render = "all";
+            # whitespace.characters = {
+              # space = "·";
+              # nbsp = "⍽";
+              # tab = "→";
+              # newline = "⤶";
+            # };
 
              gutters = [ "diagnostics" "line-numbers" "spacer" "diff"];
              statusline = {

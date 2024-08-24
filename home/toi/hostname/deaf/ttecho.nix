@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ...}:
+{ ...}:
 {
   host = {
     home = {
@@ -8,6 +8,7 @@
         encfs.enable = false;
         git.enable = true;
         iannix.enable = true;
+        libreoffice.enable = true;
         obsidian.enable = true;
         spotify.enable = true;
         zed.enable = true;
