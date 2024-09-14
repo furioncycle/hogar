@@ -1,4 +1,4 @@
-{ ...}:
+{ ... }:
 {
   host = {
     home = {
@@ -11,12 +11,12 @@
         libreoffice.enable = true;
         obsidian.enable = true;
         spotify.enable = true;
-        zed.enable = true;
+        zed.enable = false;
         edge.enable = true;
         visual-studio-code = {
           enable = true;
           defaultApplication.enable = true;
-        };     
+        };
       };
       feature = {
         gui = {
@@ -25,8 +25,8 @@
           windowManager = "cinnamon"; # cinnamon
         };
         gaming = {
-          enable = true;
-          osu.enable = true;
+          enable = false;
+          # osu.enable = true;
         };
       };
       service = {

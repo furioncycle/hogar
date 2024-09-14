@@ -1,8 +1,8 @@
-{ config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 let
-   cfg = config.host.home.applications.development;
+  cfg = config.host.home.applications.development;
 in
-   with lib;
+with lib;
 {
   options = {
     host.home.applications.development = {
@@ -16,7 +16,7 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      zigpkgs.master #zig
+      zigpkgs."0.13.0"
     ];
   };
 }
