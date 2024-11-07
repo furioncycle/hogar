@@ -34,11 +34,11 @@ with lib;
   nix = {
     settings = {
       auto-optimise-store = mkDefault true;
-      experimental-features = [ "nix-command" "flakes" "repl-flake" ];
+      experimental-features = [ "nix-command" "flakes" ];
       warn-dirty = mkDefault false;
     };
 
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.stable;
     registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
   };
 
