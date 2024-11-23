@@ -8,7 +8,7 @@
         encfs.enable = false;
         git.enable = true;
         iannix.enable = true;
-        libreoffice.enable = true;
+        libreoffice.enable = false; # Failing currently
         obsidian.enable = true;
         spotify.enable = true;
         zed.enable = false;
