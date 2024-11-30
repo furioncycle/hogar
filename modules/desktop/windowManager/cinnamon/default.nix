@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 let
-  displayServer = config.host.home.feature.gui.displayServer ;
-  windowManager = config.host.home.feature.gui.windowManager ;
+  displayServer = config.host.home.feature.gui.displayServer;
+  windowManager = config.host.home.feature.gui.windowManager;
 in
 with lib;
 {
@@ -9,29 +9,29 @@ with lib;
     home = {
       packages = with pkgs;
         [
-          cinnamon.bulky
-          cinnamon.cinnamon-common
-          cinnamon.cinnamon-control-center
-          cinnamon.cinnamon-desktop
-          cinnamon.cinnamon-gsettings-overrides
-          cinnamon.cinnamon-menus
-          cinnamon.cinnamon-screensaver
-          cinnamon.cinnamon-session
-          cinnamon.cinnamon-settings-daemon
-          cinnamon.cinnamon-translations
-          cinnamon.cjs
-          cinnamon.mint-artwork
-          cinnamon.mint-cursor-themes
-          cinnamon.mint-themes
-          cinnamon.mint-x-icons
-          cinnamon.mint-y-icons
-          cinnamon.muffin
-          cinnamon.nemo-with-extensions
-          cinnamon.pix
-          cinnamon.warpinator
-          cinnamon.xapp
-          cinnamon.xreader
-          cinnamon.xviewer
+          bulky
+          cinnamon-common
+          cinnamon-control-center
+          cinnamon-desktop
+          cinnamon-gsettings-overrides
+          cinnamon-menus
+          cinnamon-screensaver
+          cinnamon-session
+          cinnamon-settings-daemon
+          cinnamon-translations
+          cjs
+          mint-artwork
+          mint-cursor-themes
+          mint-themes
+          mint-x-icons
+          mint-y-icons
+          muffin
+          nemo-with-extensions
+          pix
+          warpinator
+          xapp
+          xreader
+          xviewer
           glib
           gsettings-desktop-schemas
           killall

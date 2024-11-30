@@ -1,9 +1,9 @@
-{config, lib, nix-colours, pkgs, ...}:
+{ config, lib, ... }:
 
 let
   cfg = config.host.home.applications.kitty;
 in
-  with lib;
+with lib;
 {
   options = {
     host.home.applications.kitty = {
@@ -20,7 +20,7 @@ in
       kitty = {
         enable = true;
         font = {
-          name = "Atkinson Hyperlegible";
+          name = "Atkinson Monolegible";
           size = 10.0;
         };
         keybindings = {
@@ -30,35 +30,23 @@ in
           "f2" = "launch --cwd=current";
         };
         settings = {
-          # Font
           bold_font = "auto";
           italic_font = "auto";
           bold_italic_font = "auto";
-          ## Cursor
           cursor_shape = "block";
-          cursor_blink_interval = -1 ;
-          ## Scrollback
+          cursor_blink_interval = -1;
           scrollback_lines = 10000;
-          # Auto Select from Mouse Clipboard;
           copy_on_select = "yes";
           strip_trailing_spaces = "smart"; # Strip Trailing spaces from Clipboard
           focus_follows_mouse = "yes";
-          ## Bell;
           enable_audio_bell = "no";
           visual_bell_duration = "0.2";
-          bell_on_tab  = "'🔔 '";
-          # Tab;
+          bell_on_tab = "'🔔 '";
           tab_activity_symbol = "'⚡ '";
           tab_bar_style = "powerline";
           tab_powerline_style = "round";
           tab_bar_min_tabs = 1;
-          #tab_title_template "{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{title}{tab.active_wd}";
-          # Tab-bar colors;
-          #active_tab_foreground = "#000";
-          #active_tab_background = "#eee";
           active_tab_font_style = "bold-italic";
-          #inactive_tab_foreground = "#444";
-          #inactive_tab_background = "#999";
           foreground = "#${config.colorscheme.colors.base05}";
           background = "#${config.colorscheme.colors.base00}";
           selection_background = "#${config.colorscheme.colors.base05}";
@@ -96,57 +84,14 @@ in
           color21 = "#${config.colorscheme.colors.base06}";
           inactive_tab_font_style = "normal";
           confirm_os_window_close = 0;
-          update_check_interval = 0 ; # Disable Updates checking
+          update_check_interval = 0; # Disable Updates checking
           # Performance
           repaint_delay = 9;
           input_delay = 2;
-          select_by_word_characters = ":@-./_~?&=%+#" ; # Characters considered a word when double clicking
+          select_by_word_characters = ":@-./_~?&=%+#"; # Characters considered a word when double clicking
         };
         shellIntegration.enableFishIntegration = true;
-        #theme = " ";
       };
-
-      # bash = {
-      #   initExtra = ''
-      #     clone() {
-      #         case "$1" in
-      #             tab)
-      #                 clone_arg="--type tab"
-      #             ;;
-      #             title)
-      #                 clone_arg="--title '$2'"
-      #             ;;
-      #             *)
-      #                 clone_arg=$@
-      #             ;;
-      #         esac
-
-      #         clone-in-kitty $clone_arg
-      #     }
-
-      #     edit() {
-      #         case "$2" in
-      #             tab)
-      #                 edit_arg="--type tab"
-
-      #             ;;
-      #             title)
-      #                 edit_arg="--title '$3'"
-      #             ;;
-      #             *)
-      #                 edit_arg="$${@}"
-      #             ;;
-      #         esac
-
-      #         edit-in-kitty $edit_arg
-      #     }
-
-      #     if [ -n "$KITTY_WINDOW_ID" ]; then
-      #         alias ssh="kitty +kitten ssh"
-      #         alias sssh="/run/current-system/sw/bin/ssh"
-      #     fi
-      #   '';
-      # };
     };
   };
 }

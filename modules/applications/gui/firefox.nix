@@ -282,7 +282,7 @@ in with lib; {
             "extensions.formautofill.heuristics.enabled" = false;
             "extensions.screenshots.disabled" = true;
             "font.internaluseonly.changed" = false; # Fonts
-            "font.name.monospace.x-western" = "Droid Sans Mono"; # Fonts
+            "font.name.monospace.x-western" = "Atkinson Monolegible"; # Fonts
             "font.name.sans-serif.x-western" = "Atkinson Hyperlegible"; # Fonts
             "font.name.serif.x-western" = "Atkinson Hyperlegible"; # Fonts
             "font.size.fixed.x-western" = "11"; # Fonts
