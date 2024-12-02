@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.home.applications.gnome-system-monitor;
 in
-  with lib;
+with lib;
 {
   options = {
     host.home.applications.gnome-system-monitor = {

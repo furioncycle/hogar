@@ -1,4 +1,4 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 let
   cfg = config.host.home.applications.fish;
   hasPackage = pname: lib.any (p: p ? pname && p.pname == pname) config.home.packages;
@@ -9,7 +9,7 @@ let
   hasKitty = config.programs.kitty.enable;
   # shellcolor = "${pkgs.shellcolord}/bin/shellcolor";
 in
-  with lib;
+with lib;
 {
   options = {
     host.home.applications.fish = {
@@ -69,18 +69,7 @@ in
           clear = "printf '\\033[2J\\033[3J\\033[1;1H'";
         };
         functions = {
-          fish_greeting ="";
-          # ssh = mkIf hasShellColor ''
-          #   ${shellcolor} disable $fish_pid
-          #   # Check if kitty is available
-          #   if set -q KITTY_PID && set -q KITTY_WINDOW_ID && type -q -f kitty
-          #     kitty +kitten ssh $argv
-          #   else
-          #     command ssh $argv
-          #   end
-          #   ${shellcolor} enable $fish_pid
-          #   ${shellcolor} apply $fish_pid
-          # '';
+          fish_greeting = "";
         };
         interactiveShellInit =
           # Open command buffer in vim when alt+e is pressed

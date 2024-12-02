@@ -3,7 +3,8 @@
 let
   inherit (specialArgs) username;
   cfg = config.host.home.applications.firefox;
-in with lib; {
+in
+with lib; {
   options = {
     host.home.applications.firefox = {
       enable = mkOption {

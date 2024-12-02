@@ -15,7 +15,7 @@ let
     scdisable = "systemctl disable $@"; # systemd service disable
   };
 in
-  with lib;
+with lib;
 {
   options = {
     host.home.applications.bash = {
@@ -159,12 +159,6 @@ in
             }
           fi
 
-          if [ -d "$XDG_RUNTIME_DIR/secrets/bashrc.d" ] ; then
-            for script in $XDG_RUNTIME_DIR/secrets/bashrc.d/* ; do
-                source $script
-            done
-          fi
-
           man() {
               LESS_TERMCAP_md=$'\e[01;31m' \
               LESS_TERMCAP_me=$'\e[0m' \
@@ -272,12 +266,8 @@ in
 
         shellOptions = [
           "autocd" # auto jump to directory (eg typing /etc)
-          #"cmdhist"                               # history - attempt to save multiple line command in same entry
-          #"histappend"                            # history - append (rather than overwrite)
         ];
 
-        #profileExtra = builtins.readFile ~/.bash_profile;
-        #initExtra = builtins.readFile ~/.bashrc;
       };
     };
   };

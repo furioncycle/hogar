@@ -1,8 +1,8 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
-  displayServer = config.host.home.feature.gui.displayServer.server ;
-  cfg = config.host.home.feature.gui ;
+  displayServer = config.host.home.feature.gui.displayServer.server;
+  cfg = config.host.home.feature.gui;
 in
 with lib;
 {
@@ -21,13 +21,13 @@ with lib;
       };
 
       displayServer = mkOption {
-        type = types.enum ["x" "wayland" null];
+        type = types.enum [ "x" "wayland" null ];
         default = null;
         description = "Type of displayServer";
       };
 
       windowManager = mkOption {
-        type = types.enum ["cinnamon" "hyprland" "i3" "sway" ];
+        type = types.enum [ "cinnamon" "i3" "sway" ];
         default = null;
         description = "Type of window manager (yes, I know some are desktop environments)";
       };
@@ -38,9 +38,9 @@ with lib;
     home = {
       packages = with pkgs;
         [
-          polkit        # Allows unprivileged processes to speak to privileged processes
-          polkit_gnome  # Used to bring up authentication dialogs
-          xdg-utils     # Desktop integration
+          polkit # Allows unprivileged processes to speak to privileged processes
+          polkit_gnome # Used to bring up authentication dialogs
+          xdg-utils # Desktop integration
         ];
     };
   };

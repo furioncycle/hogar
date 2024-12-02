@@ -41,7 +41,6 @@ with lib;
         neofetch.enable = mkDefault true;
         ncdu.enable = mkDefault true;
         ranger.enable = mkDefault true;
-        # secrets.enable = mkDefault true;
         wget.enable = mkDefault true;
         zoxide.enable = mkDefault true;
       };

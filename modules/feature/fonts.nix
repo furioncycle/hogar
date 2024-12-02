@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.home.feature.fonts;
 in
-  with lib;
+with lib;
 {
   options = {
     host.home.feature.fonts = {

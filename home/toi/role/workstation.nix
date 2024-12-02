@@ -16,10 +16,8 @@ with lib;
         git.enable = mkDefault true;
         encfs.enable = mkDefault false;
       };
-      feature = {
-      };
+      feature = { };
       service = {
-        decrypt_encfs_workspace.enable = mkDefault false;
         vscode-server.enable = mkDefault false;
       };
     };

@@ -31,7 +31,6 @@ with lib;
     ./nmap.nix
     ./ranger.nix
     ./ripgrep.nix
-    ./secrets.nix
     ./shfmt.nix
     ./shellcheck.nix
     ./spotify.nix

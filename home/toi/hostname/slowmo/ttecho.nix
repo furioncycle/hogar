@@ -18,7 +18,7 @@
         gui = {
           enable = true;
           displayServer = "wayland";
-          windowManager = "hyprland";
+          windowManager = "sway";
         };
       };
       service = {
