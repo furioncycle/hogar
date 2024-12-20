@@ -25,6 +25,7 @@ with lib;
     home.packages = with pkgs; [
       atkinson-hyperlegible
       atkinson-monolegible
+      noto-fonts-emoji
     ];
   };
 }
