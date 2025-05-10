@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.home.applications.lsd;
 in
-  with lib;
+with lib;
 {
   options = {
     host.home.applications.lsd = {
@@ -24,10 +24,6 @@ in
           date = "date";
           ignore-globs = [ ".git" ".hg" ];
         };
-      };
-
-      bash.shellAliases = {
-        ls = "lsd --hyperlink=auto" ; # directory list alternative
       };
     };
   };

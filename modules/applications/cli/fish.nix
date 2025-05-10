@@ -122,9 +122,11 @@ with lib;
 
             # paths
             set PATH "$HOME/.cargo/bin" $PATH;
+            set PATH "$HOME/dev/personal/cheriot-llvm/builds/cheriot-llvm/bin" $PATH;
+            set PATH "$HOME/dev/personal/cheriot-sail/c_emulator" $PATH;
 
-          ''; 
+          '';
       };
     };
-  }; 
+  };
 }

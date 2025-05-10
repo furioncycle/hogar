@@ -28,7 +28,9 @@ with lib;
         python311Packages.python-lsp-server
         rust-analyzer
         typos-lsp
-        typst-lsp
+        superhtml
+        tailwindcss-language-server
+        # ziggy
         # zls
         # helix-gpt
       ];
@@ -47,7 +49,7 @@ with lib;
           bufferline = "always";
           rulers = [ 100 ];
           popup-border = "popup";
-          soft-wrap.enable = true;
+          # soft-wrap.enable = true;
           completion-replace = true;
           mouse = false;
           sticky-context = {
@@ -64,14 +66,6 @@ with lib;
             cursor-line = "hint";
             other-lines = "error";
           };
-
-          # whitespace.render = "all";
-          # whitespace.characters = {
-          # space = "·";
-          # nbsp = "⍽";
-          # tab = "→";
-          # newline = "⤶";
-          # };
 
           gutters = [ "diagnostics" "line-numbers" "spacer" "diff" ];
           statusline = {
@@ -117,6 +111,10 @@ with lib;
 
       languages = {
         language-server = {
+          superhtml-lsp = {
+            command = "superhtml";
+            args = [ "lsp" ];
+          };
           nil = {
             command = "${pkgs.nil}/bin/nil";
           };
@@ -140,12 +138,16 @@ with lib;
           typos = {
             command = "${pkgs.typos-lsp}/bin/typos-lsp";
           };
-          typst = {
-            command = "${pkgs.typst-lsp}/bin/typst-lsp";
-          };
         };
 
         language = [
+          {
+            name = "html";
+            scope = "source.html";
+            roots = [ ];
+            file-types = [ "html" "shtml" ];
+            language-servers = [ "superhtml-lsp" "typos" ];
+          }
           {
             name = "nix";
             scope = "source.nix";
@@ -160,9 +162,9 @@ with lib;
             scope = "source.typ";
             auto-format = true;
             language-servers = [ "typst" "typos" ];
-            formatter = {
-              command = "${pkgs.typst-lsp}/bin/typstfmt";
-            };
+            # formatter = {
+            # command = "${pkgs.typst-lsp}/bin/typstfmt";
+            # };
           }
           {
             name = "rust";
@@ -202,11 +204,20 @@ with lib;
             };
             auto-format = true;
           }
+          {
+            name = "css";
+            scope = "source.css";
+
+            language-servers = [ "tailwindcss-ls" "vscode-css-language-server" ];
+          }
         ];
       };
 
     };
 
+    home.sessionVariables = {
+      HELIX_RUNTIME_PATH = "$HOME/.config/helix/runtime";
+    };
     # xdg.configFile."zls.json".text = builtins.toJSON {
     #   "$schema" = "https://raw.githubusercontent.com/zigtools/zls/master/schema.json";
     #   enable_autofix = true;

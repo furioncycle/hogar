@@ -71,11 +71,6 @@ with lib;
         yzhang.markdown-all-in-one # Markown
         davidanson.vscode-markdownlint # Markdown
 
-        ## Remote
-        ms-vscode-remote.remote-containers # Access Docker Contaniers remotely
-        ms-vscode-remote.remote-ssh # Open any folder on remote system
-        ms-vscode-remote.remote-ssh-edit # Edit SSH Configuration Files
-        ms-vscode.remote-explorer # View remote machines for SSH and Tunnels
 
         ## Syntax Highlighting | File Support | Linting
         # adacore.ada-language-server

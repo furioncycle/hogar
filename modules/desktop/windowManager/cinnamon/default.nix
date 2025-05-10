@@ -40,7 +40,6 @@ with lib;
           polkit_gnome
           sound-theme-freedesktop
           xdg-user-dirs
-          xplayer
         ];
     };
 

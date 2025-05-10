@@ -9,8 +9,8 @@
         git.enable = true;
         iannix.enable = true;
         libreoffice.enable = false; # Failing currently
-        obsidian.enable = true;
-        spotify.enable = true;
+        obsidian.enable = false;
+        spotify.enable = false;
         zed.enable = false;
         edge.enable = true;
         visual-studio-code = {

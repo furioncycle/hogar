@@ -28,12 +28,6 @@
     };
     nur.url = "github:nix-community/NUR";
     zig-overlay.url = "github:mitchellh/zig-overlay";
-    ziggy.url = "github:kristoff-it/ziggy";
-
-    # zls-master = {
-    # url = "github:zigtools/zls";
-    # inputs.nixpkgs.follows = "nixpkgs";
-    # };
 
   };
 
@@ -51,7 +45,7 @@
         ] ++ [
           (final: prev: {
             helix = inputs.helix-master.packages.${system}.default;
-            # zls = inputs.zls-master.packages.${system}.default;
+            # ziggy = inputs.ziggy.packages.${system}.default;
           })
         ];
         inherit system;
