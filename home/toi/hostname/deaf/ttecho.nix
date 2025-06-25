@@ -12,7 +12,7 @@
         obsidian.enable = false;
         spotify.enable = false;
         zed.enable = false;
-        edge.enable = true;
+        edge.enable = false;
         visual-studio-code = {
           enable = true;
           defaultApplication.enable = true;
