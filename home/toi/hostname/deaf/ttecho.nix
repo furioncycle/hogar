@@ -20,7 +20,7 @@
       };
       feature = {
         gui = {
-          enable = true;
+          enable = false;
           displayServer = "x";
           windowManager = "cinnamon"; # cinnamon
         };
