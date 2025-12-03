@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.home.applications.ranger;
 in
-  with lib;
+with lib;
 {
   options = {
     host.home.applications.ranger = {
@@ -19,15 +19,15 @@ in
     home = {
       packages = with pkgs;
         [
-          atool               # viewing inside archives
-          exiftool            # Viewing information about media files
-          ffmpegthumbnailer   # Video Thumbnails
-          file                # Determine file types
-          imagemagick_light   # Auto rotate images for previews
-          mupdf               # Textual PDF previews
-          poppler_utils       # PDF image previews
-          ranger              # The actual file manager
-          w3m                 # Web previews
+          atool # viewing inside archives
+          exiftool # Viewing information about media files
+          ffmpegthumbnailer # Video Thumbnails
+          file # Determine file types
+          imagemagick_light # Auto rotate images for previews
+          mupdf # Textual PDF previews
+          poppler-utils # PDF image previews
+          ranger # The actual file manager
+          w3m # Web previews
         ];
     };
 

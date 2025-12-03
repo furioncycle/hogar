@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.host.home.applications.dust;
 in
-  with lib;
+with lib;
 {
   options = {
     host.home.applications.dust = {
@@ -19,13 +19,13 @@ in
     home = {
       packages = with pkgs;
         [
-          du-dust
+          dust
         ];
     };
     programs = {
       bash = {
         shellAliases = {
-          du = "dust" ;    # disk usage alternative
+          du = "dust"; # disk usage alternative
         };
       };
     };

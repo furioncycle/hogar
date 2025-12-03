@@ -25,7 +25,6 @@ with lib;
     home.packages = with pkgs; [
       atkinson-hyperlegible-next
       atkinson-hyperlegible-mono
-      noto-fonts-emoji
       noto-fonts-color-emoji
       noto-fonts-cjk-sans
       fira-code-symbols

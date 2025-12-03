@@ -44,7 +44,7 @@ with lib; {
     home = {
       packages = [ pkgs.nur.repos.rycee.mozilla-addons-to-nix ];
     };
-
+    programs.librewolf.enable = true;
     programs.firefox = {
       enable = true;
       package = if pkgs.stdenv.isLinux then pkgs.firefox else pkgs.firefox-bin;

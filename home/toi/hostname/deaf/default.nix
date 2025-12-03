@@ -1,8 +1,10 @@
-{ config, lib, pkgs, specialArgs, ...}:
+{ config, lib, pkgs, specialArgs, ... }:
 let
   inherit (specialArgs) role;
 in
-  with lib;
+with lib;
 {
-  
+  nixpkgs.config.permittedInsecurePackages = [
+    "qtwebengine-5.15.19"
+  ];
 }

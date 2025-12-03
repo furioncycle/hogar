@@ -25,7 +25,7 @@ with lib;
         lldb
         marksman
         nil
-        python311Packages.python-lsp-server
+        #        python311Packages.python-lsp-server
         rust-analyzer
         typos-lsp
         superhtml

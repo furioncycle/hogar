@@ -9,7 +9,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     helix-master = {
-      url = "github:SoraTenshi/helix/new-daily-driver";
+      url = "github:SoraTenshi/helix/new-daily-driver-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
