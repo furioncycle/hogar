@@ -21,8 +21,9 @@
       feature = {
         gui = {
           enable = false;
-          displayServer = "x";
-          windowManager = "cinnamon"; # cinnamon
+          displayServer = "wayland";
+          # windowManager = "";
+          # windowManager = "cinnamon"; # cinnamon
         };
         gaming = {
           enable = false;

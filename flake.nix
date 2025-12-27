@@ -38,7 +38,7 @@
 
       pkgsForSystem = system: import nixpkgs {
         overlays = [
-          inputs.nur.overlay
+          inputs.nur.overlays.default
           inputs.nix-vscode-extensions.overlays.default
           inputs.nixpkgs-wayland.overlay
           inputs.zig-overlay.overlays.default
