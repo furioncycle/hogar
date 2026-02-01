@@ -11,7 +11,7 @@
         libreoffice.enable = false; # Failing currently
         obsidian.enable = false;
         spotify.enable = false;
-        zed.enable = false;
+        zed.enable = true;
         edge.enable = false;
         visual-studio-code = {
           enable = true;

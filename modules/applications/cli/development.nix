@@ -16,7 +16,7 @@ with lib;
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      zigpkgs."0.13.0"
+      zigpkgs."0.15.2"
     ];
   };
 }
